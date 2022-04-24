@@ -23,7 +23,7 @@ namespace CapaDatos
         /// Metodo que retorna todos los registros de la tabla GruposEntidades
         /// </summary>
         /// <returns>Retorna una variable DataTabe con todos los registros de la Tabla Entidades</returns>
-        public DataTable FillTpEntidades()
+        public DataTable Listar()
         {
             dt = new DataTable();
 
@@ -57,7 +57,7 @@ namespace CapaDatos
         /// Metodo para insertar un registro en la tabla GruposEntidades
         /// </summary>
         /// <returns>Un 1 si la insercion fue exitosa, el mensaje de error en caso de error (duh)</returns>
-        public int InsertTpEntidades(string desc, int idGrEnt, string comment, string status, int noElim)
+        public int Insert(string desc, int idGrEnt, string comment, string status, int noElim)
         {
 
             try
@@ -95,7 +95,7 @@ namespace CapaDatos
         /// Actualiza un registro de la tabla GruposEntidades
         /// </summary>
         /// <returns>El numero de filas modificadas, o un mensaje en caso de error</returns>
-        public int UpdateTpEntidades(int id, string desc, int idGrEnt, string comment, string status, int noElim)
+        public int Update(int id, string desc, int idGrEnt, string comment, string status, int noElim)
         {
             int rows;
 
@@ -135,7 +135,7 @@ namespace CapaDatos
         /// Elimina un registro de la tabla GruposEntidades
         /// </summary>
         /// <returns>El numero de registros eliminados o un mensaje en caso de error</returns>
-        public int DeleteTpEntidades(int id)
+        public int Delete(int id)
         {
             int rows;
 
@@ -170,7 +170,7 @@ namespace CapaDatos
         /// Metodo para buscar registros en la tabla GruposEntidades
         /// </summary>
         /// <returns>Un DataTable con los registros que coinciden con los parametros de busqueda</returns>
-        public DataTable BuscarTpEntidades(string parametro)
+        public DataTable Buscar(string parametro)
         {
             dt = new DataTable();
 

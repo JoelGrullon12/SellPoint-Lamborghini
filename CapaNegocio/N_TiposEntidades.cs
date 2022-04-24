@@ -31,8 +31,9 @@ namespace CapaNegocio
 
         public int Update(int id, string desc, int idGrEnt, string comment, string status, bool noElim)
         {
+            int intNoElim=noElim? 1 : 0;
             msg = dtent.msg;
-            return dtent.Update(id, desc, desc, idGrEnt, comment, status, intNoElim);
+            return dtent.Update(id, desc, idGrEnt, comment, status, intNoElim);
         }
 
         public int Delete(int id)
@@ -54,7 +55,7 @@ namespace CapaNegocio
 
             for (int i = 0; i < o; i++)
             {
-                grEnt[i]=tbTpEnt.Rows[i][13];
+                grEnt[i]=tbTpEnt.Rows[i][13].ToString();
             }
 
             return grEnt;

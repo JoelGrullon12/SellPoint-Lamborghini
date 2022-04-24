@@ -177,8 +177,9 @@ namespace Proyecto_FinalP2.Menu_Principal
             }
             else
             {
+                int intNoElim=noElim? 1 : 0;
                 nent.Update(id, desc, dir, local, tpEnttxt, tpDoc, numeroDoc, tel, urlWeb, urlFB, urlIG, urlTW,
-                urlTK, grEnt, tpEnt, limCred, usu, pass, rol, comment, status, noElim);
+                urlTK, grEnt, tpEnt, limCred, usu, pass, rol, comment, status, intNoElim);
             }
         }
 
@@ -196,7 +197,7 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private void grvEntidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id=grvEntidades.CurrentRow.Cells[0].ToString();
+            id=Convert.ToInt32(grvEntidades.CurrentRow.Cells[0].ToString());
             txtID.Text=grvEntidades.CurrentRow.Cells[0].ToString();
             txtDesc.Text=grvEntidades.CurrentRow.Cells[1].ToString();
             txtDir.Text=grvEntidades.CurrentRow.Cells[2].ToString();

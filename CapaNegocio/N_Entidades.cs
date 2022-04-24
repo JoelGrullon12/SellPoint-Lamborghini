@@ -64,7 +64,7 @@ namespace CapaNegocio
 
             for (int i = 0; i < o; i++)
             {
-                tpEnt[i]=tbEnt.Rows[i][14];
+                tpEnt[i]=tbEnt.Rows[i][14].ToString();
             }
 
             return tpEnt;
@@ -77,7 +77,7 @@ namespace CapaNegocio
 
             for (int i = 0; i < o; i++)
             {
-                grEnt[i]=tbEnt.Rows[i][13];
+                grEnt[i]=tbEnt.Rows[i][13].ToString();
             }
 
             return grEnt;

@@ -23,11 +23,11 @@ namespace Proyecto_FinalP2.Menu_Principal
             InitializeComponent();
 
             CargarDatos();
-            //CargarComboBoxes();
+            CargarComboBoxes();
         }
 
         private void CargarDatos(){
-            dataGridView1.DataSource=ntent.Listar();
+            grvGruposEntidades.DataSource=ntent.Listar();
         }
 
         private void CargarComboBoxes(){
@@ -35,7 +35,7 @@ namespace Proyecto_FinalP2.Menu_Principal
 
             for (int i = 0; i < grEnt.Length; i++)
             {
-                comboBox1.Items.Add(grEnt[i]);//NOMBRE AQUI
+                cmbGrEnt.Items.Add(grEnt[i]);
             }
         }
 
@@ -88,39 +88,33 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string desc = textBox4.Text;
-            int tpEnt = 1;//IMPORTANTE, ESO ES MIENTRAS TANTO, 
-            //PONGAN OTRO COMBOBOX PARA EL ID ENTIDAD Y DESPUES PONEN 
-            //EL VALOR DEL TEXTO A ESA VARIABLE Y DESCOMENTAN EL CODIGO DE LA LINEA 24
-            //DESPUES CAMBIAN EL NOMBRE DEL combobox1 DE LA LINEA 36
-            string comment = textBox1.Text;
-            string status = comboBox1.Text;
-            bool noElim = checkBox1.Checked;
+            string desc = txtComment.Text;
+            int grEnt = Convert.ToInt32(cmbGrEnt.Text);
+            string comment = txtID.Text;
+            string status = cmbStatus.Text;
+            bool noElim = chkNoElim.Checked;
 
             if(desc==""){
                 MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
                     "\nDescripcion","Debe rellenar todos los campos requeridos");
             }else{
-                ntent.Insert(desc, tpEnt, comment, status, noElim);
+                ntent.Insert(desc, grEnt, comment, status, noElim);
             }
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            string desc = textBox4.Text;
-            int tpEnt = 1;//IMPORTANTE, ESO ES MIENTRAS TANTO, 
-            //PONGAN OTRO COMBOBOX PARA EL ID ENTIDAD Y DESPUES PONEN 
-            //EL VALOR DEL TEXTO A ESA VARIABLE Y DESCOMENTAN EL CODIGO DE LA LINEA 24
-            //DESPUES CAMBIAN EL NOMBRE DEL combobox1 DE LA LINEA 36
-            string comment = textBox1.Text;
-            string status = comboBox1.Text;
-            bool noElim = checkBox1.Checked;
+            string desc = txtComment.Text;
+            int grEnt = Convert.ToInt32(cmbGrEnt.Text);
+            string comment = txtID.Text;
+            string status = cmbStatus.Text;
+            bool noElim = chkNoElim.Checked;
 
             if(desc==""){
                 MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
                     "\nDescripcion","Debe rellenar todos los campos requeridos");
             }else{
-                ntent.Update(id, desc, tpEnt, comment, status, noElim);
+                ntent.Update(id, desc, grEnt, comment, status, noElim);
             }
         }
 
@@ -129,6 +123,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             int res=ntent.Delete(id);
             if(res==1){
                 MessageBox.Show("Registro eliminado con exito\n"+ntent.rows.ToString()+" afectadas", "Registros eliminados");
+                LimpiarCampos();
             }else if(res==3){
                 MessageBox.Show("Se ha producido un error en la base de datos\n"+ntent.msg, "Error de SLQ detectado");
             }else if(res==4){
@@ -136,34 +131,51 @@ namespace Proyecto_FinalP2.Menu_Principal
             }
         }
 
+        private void LimpiarCampos()
+        {
+            txtID.Text = "000";
+            txtComment.Text = "";
+            txtDesc.Text = "";
+            cmbGrEnt.SelectedIndex = 0;
+            cmbGrEnt.SelectedIndex = 0;
+
+            btnadd.Enabled = true;
+            btndelete.Enabled = false;
+            btnupdate.Enabled = false;
+        }
+
         private void btnsearch_Click(object sender, EventArgs e)
         {
-            string param = "";
-            //UTEDE TAN BURLAO, Y EL TEXTBOX BUSCAR XDDDDDD, BUENO, CREENLO Y AGREGEN EL TEXTO A ESA VARIABLE
+            string param = txtSearch.Text;
 
             if (param == "")
             {
-                dataGridView1.DataSource = ntent.Listar();
+                grvGruposEntidades.DataSource = ntent.Listar();
             }
             else
             {
-                dataGridView1.DataSource = ntent.Buscar(param);
+                grvGruposEntidades.DataSource = ntent.Buscar(param);
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id=Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].ToString());
-            //txtID.Text=dataGridView1.CurrentRow.Cells[0].ToString();
-            textBox4.Text=dataGridView1.CurrentRow.Cells[1].ToString();
-             //cmbIdTpEnt.Text=dataGridView1.CurrentRow.Cells[2].ToString();
-             textBox1.Text=dataGridView1.CurrentRow.Cells[3].ToString();
-             comboBox1.Text=dataGridView1.CurrentRow.Cells[4].ToString();
-             checkBox1.Checked=dataGridView1.CurrentRow.Cells[5].ToString()=="1"?true:false;
+            id=Convert.ToInt32(grvGruposEntidades.CurrentRow.Cells[0].ToString());
+            txtID.Text=grvGruposEntidades.CurrentRow.Cells[0].ToString();
+            txtComment.Text=grvGruposEntidades.CurrentRow.Cells[1].ToString();
+            cmbGrEnt.Text=grvGruposEntidades.CurrentRow.Cells[2].ToString();
+            txtID.Text=grvGruposEntidades.CurrentRow.Cells[3].ToString();
+            cmbStatus.Text=grvGruposEntidades.CurrentRow.Cells[4].ToString();
+            chkNoElim.Checked = grvGruposEntidades.CurrentRow.Cells[5].ToString() == "1" ? true : false;
 
              btnadd.Enabled=false;
              btnupdate.Enabled=true;
              btndelete.Enabled=true;
+        }
+
+        private void btnrefrescar_Click(object sender, EventArgs e)
+        {
+            grvGruposEntidades.DataSource = ntent.Listar();
         }
     }
 }

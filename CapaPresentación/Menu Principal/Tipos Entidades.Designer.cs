@@ -35,20 +35,22 @@
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.chkNoElim = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbGrEnt = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.txtComment = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grvGruposEntidades = new System.Windows.Forms.DataGridView();
             this.btnrefrescar = new System.Windows.Forms.Button();
-            this.btnnuevo = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
-            this.btnsearch = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnupdate = new System.Windows.Forms.Button();
             this.btndelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
@@ -57,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvGruposEntidades)).BeginInit();
             this.SuspendLayout();
             // 
             // Minimizar
@@ -126,20 +128,22 @@
             // 
             // panelPrincipal
             // 
-            this.panelPrincipal.Controls.Add(this.textBox2);
-            this.panelPrincipal.Controls.Add(this.checkBox1);
+            this.panelPrincipal.Controls.Add(this.txtSearch);
+            this.panelPrincipal.Controls.Add(this.txtDesc);
+            this.panelPrincipal.Controls.Add(this.chkNoElim);
+            this.panelPrincipal.Controls.Add(this.label1);
+            this.panelPrincipal.Controls.Add(this.cmbGrEnt);
             this.panelPrincipal.Controls.Add(this.label4);
-            this.panelPrincipal.Controls.Add(this.comboBox1);
-            this.panelPrincipal.Controls.Add(this.textBox4);
+            this.panelPrincipal.Controls.Add(this.cmbStatus);
+            this.panelPrincipal.Controls.Add(this.txtComment);
             this.panelPrincipal.Controls.Add(this.label5);
-            this.panelPrincipal.Controls.Add(this.textBox1);
+            this.panelPrincipal.Controls.Add(this.txtID);
             this.panelPrincipal.Controls.Add(this.label3);
             this.panelPrincipal.Controls.Add(this.label2);
-            this.panelPrincipal.Controls.Add(this.dataGridView1);
+            this.panelPrincipal.Controls.Add(this.grvGruposEntidades);
             this.panelPrincipal.Controls.Add(this.btnrefrescar);
-            this.panelPrincipal.Controls.Add(this.btnnuevo);
             this.panelPrincipal.Controls.Add(this.btnadd);
-            this.panelPrincipal.Controls.Add(this.btnsearch);
+            this.panelPrincipal.Controls.Add(this.btnSearch);
             this.panelPrincipal.Controls.Add(this.btnupdate);
             this.panelPrincipal.Controls.Add(this.btndelete);
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -149,56 +153,87 @@
             this.panelPrincipal.TabIndex = 5;
             this.panelPrincipal.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelPrincipal_MouseMove);
             // 
-            // textBox2
+            // txtSearch
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 112);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(270, 113);
-            this.textBox2.TabIndex = 57;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(289, 37);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(480, 32);
+            this.txtSearch.TabIndex = 57;
             // 
-            // checkBox1
+            // txtDesc
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(76, 462);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(131, 22);
-            this.checkBox1.TabIndex = 56;
-            this.checkBox1.Text = "No Eliminable";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.txtDesc.Location = new System.Drawing.Point(12, 112);
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(270, 113);
+            this.txtDesc.TabIndex = 57;
+            // 
+            // chkNoElim
+            // 
+            this.chkNoElim.AutoSize = true;
+            this.chkNoElim.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkNoElim.ForeColor = System.Drawing.Color.White;
+            this.chkNoElim.Location = new System.Drawing.Point(21, 473);
+            this.chkNoElim.Name = "chkNoElim";
+            this.chkNoElim.Size = new System.Drawing.Size(131, 22);
+            this.chkNoElim.TabIndex = 56;
+            this.chkNoElim.Text = "No Eliminable";
+            this.chkNoElim.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(34, 418);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 19);
+            this.label1.TabIndex = 55;
+            this.label1.Text = "Grupo Entidad";
+            // 
+            // cmbGrEnt
+            // 
+            this.cmbGrEnt.FormattingEnabled = true;
+            this.cmbGrEnt.Items.AddRange(new object[] {
+            "Activa",
+            "Inactiva"});
+            this.cmbGrEnt.Location = new System.Drawing.Point(22, 440);
+            this.cmbGrEnt.Name = "cmbGrEnt";
+            this.cmbGrEnt.Size = new System.Drawing.Size(140, 21);
+            this.cmbGrEnt.TabIndex = 54;
+            this.cmbGrEnt.Text = "Activa";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(109, 380);
+            this.label4.Location = new System.Drawing.Point(62, 366);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 19);
             this.label4.TabIndex = 55;
             this.label4.Text = "Estado";
             // 
-            // comboBox1
+            // cmbStatus
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
             "Activa",
             "Inactiva"});
-            this.comboBox1.Location = new System.Drawing.Point(67, 402);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 54;
-            this.comboBox1.Text = "Activa";
+            this.cmbStatus.Location = new System.Drawing.Point(20, 388);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(140, 21);
+            this.cmbStatus.TabIndex = 54;
+            this.cmbStatus.Text = "Activa";
             // 
-            // textBox4
+            // txtComment
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 250);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(270, 113);
-            this.textBox4.TabIndex = 53;
+            this.txtComment.Location = new System.Drawing.Point(12, 250);
+            this.txtComment.Multiline = true;
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(270, 113);
+            this.txtComment.TabIndex = 53;
             // 
             // label5
             // 
@@ -211,13 +246,13 @@
             this.label5.TabIndex = 52;
             this.label5.Text = "Comentario";
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(32, 20);
-            this.textBox1.TabIndex = 51;
-            this.textBox1.Text = "000";
+            this.txtID.Location = new System.Drawing.Point(16, 44);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(32, 20);
+            this.txtID.TabIndex = 51;
+            this.txtID.Text = "000";
             // 
             // label3
             // 
@@ -241,16 +276,16 @@
             this.label2.TabIndex = 49;
             this.label2.Text = "ID";
             // 
-            // dataGridView1
+            // grvGruposEntidades
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(288, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(582, 335);
-            this.dataGridView1.TabIndex = 48;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.grvGruposEntidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grvGruposEntidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grvGruposEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvGruposEntidades.Location = new System.Drawing.Point(288, 74);
+            this.grvGruposEntidades.Name = "grvGruposEntidades";
+            this.grvGruposEntidades.Size = new System.Drawing.Size(582, 335);
+            this.grvGruposEntidades.TabIndex = 48;
+            this.grvGruposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnrefrescar
             // 
@@ -258,25 +293,13 @@
             this.btnrefrescar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnrefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.btnrefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnrefrescar.Location = new System.Drawing.Point(876, 91);
+            this.btnrefrescar.Location = new System.Drawing.Point(876, 82);
             this.btnrefrescar.Name = "btnrefrescar";
             this.btnrefrescar.Size = new System.Drawing.Size(96, 36);
             this.btnrefrescar.TabIndex = 47;
             this.btnrefrescar.Text = "Refrescar";
             this.btnrefrescar.UseVisualStyleBackColor = false;
-            // 
-            // btnnuevo
-            // 
-            this.btnnuevo.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnnuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnnuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
-            this.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnnuevo.Location = new System.Drawing.Point(876, 38);
-            this.btnnuevo.Name = "btnnuevo";
-            this.btnnuevo.Size = new System.Drawing.Size(96, 36);
-            this.btnnuevo.TabIndex = 46;
-            this.btnnuevo.Text = "Nuevo";
-            this.btnnuevo.UseVisualStyleBackColor = false;
+            this.btnrefrescar.Click += new System.EventHandler(this.btnrefrescar_Click);
             // 
             // btnadd
             // 
@@ -284,58 +307,58 @@
             this.btnadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadd.Location = new System.Drawing.Point(351, 402);
+            this.btnadd.Location = new System.Drawing.Point(572, 425);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(96, 36);
             this.btnadd.TabIndex = 45;
             this.btnadd.Text = "Añadir";
             this.btnadd.UseVisualStyleBackColor = false;
-            this.btnadd.Click+=new System.EventHandler(this.btnAdd_Click);
+            this.btnadd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnsearch
+            // btnSearch
             // 
-            this.btnsearch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnsearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnsearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
-            this.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsearch.Location = new System.Drawing.Point(477, 402);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(96, 36);
-            this.btnsearch.TabIndex = 44;
-            this.btnsearch.Text = "Buscar";
-            this.btnsearch.UseVisualStyleBackColor = false;
-            this.btnsearch.Click+=new System.EventHandler(this.btnsearch_Click);
+            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(774, 35);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(96, 36);
+            this.btnSearch.TabIndex = 44;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
             // btnupdate
             // 
             this.btnupdate.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnupdate.Enabled = false;
             this.btnupdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
             this.btnupdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnupdate.Location = new System.Drawing.Point(605, 402);
+            this.btnupdate.Location = new System.Drawing.Point(674, 425);
             this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Enabled=false;
             this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnupdate.Size = new System.Drawing.Size(96, 36);
             this.btnupdate.TabIndex = 43;
             this.btnupdate.Text = "Actualizar";
             this.btnupdate.UseVisualStyleBackColor = false;
-            this.btnupdate.Click+=new System.EventHandler(this.btnupdate_Click);
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // btndelete
             // 
             this.btndelete.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btndelete.Enabled = false;
             this.btndelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
             this.btndelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndelete.Location = new System.Drawing.Point(730, 402);
+            this.btndelete.Location = new System.Drawing.Point(776, 425);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(96, 36);
             this.btndelete.TabIndex = 42;
             this.btndelete.Text = "Eliminar";
-            this.btndelete.Enabled=false;
             this.btndelete.UseVisualStyleBackColor = false;
-            this.btndelete.Click+=new System.EventHandler(this.btndelete_Click);
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // Tipos_Entidades
             // 
@@ -356,7 +379,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvGruposEntidades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,21 +392,23 @@
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Panel panelPrincipal;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.CheckBox chkNoElim;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grvGruposEntidades;
         private System.Windows.Forms.Button btnrefrescar;
-        private System.Windows.Forms.Button btnnuevo;
         private System.Windows.Forms.Button btnadd;
-        private System.Windows.Forms.Button btnsearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnupdate;
         private System.Windows.Forms.Button btndelete;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbGrEnt;
     }
 }
