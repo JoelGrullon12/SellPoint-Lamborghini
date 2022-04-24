@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
 
 namespace CapaPresentación
 {
@@ -124,18 +125,25 @@ namespace CapaPresentación
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtpass.Text == "hola")
-            {
-                MessageBox.Show("Correcto!");
-            }
-            if (txtuser.Text == "hola")
-            {
-                MessageBox.Show("Correcto!");
-            }
-            MenuPrincipal menu1 = new MenuPrincipal();
-            menu1.Show();
-            this.Hide();
+            string user = txtuser.Text;
+            string pass = txtpass.Text;
+            MenuPrincipal main = new MenuPrincipal();
+            int acc = N_Login.Login(user, pass);
 
+            if (acc == 1)
+            {
+                main.Show();
+                this.Hide();
+            }
+            else if (acc == 0)
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrectos", "Datos erroneos");
+            }
+            else if (acc == 45)
+            {
+                MessageBox.Show(N_Login.msg, "Error");
+
+            }
         }
 
         private void btnLogin_KeyDown(object sender, KeyEventArgs e)
