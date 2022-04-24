@@ -27,7 +27,7 @@ namespace Proyecto_FinalP2.Menu_Principal
         }
 
         private void CargarDatos(){
-            grvGruposEntidades.DataSource=ntent.Listar();
+            grvTiposEntidades.DataSource=ntent.Listar();
         }
 
         private void CargarComboBoxes(){
@@ -137,7 +137,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             txtComment.Text = "";
             txtDesc.Text = "";
             cmbGrEnt.SelectedIndex = 0;
-            cmbGrEnt.SelectedIndex = 0;
+            cmbStatus.SelectedIndex = 0;
 
             btnadd.Enabled = true;
             btndelete.Enabled = false;
@@ -150,23 +150,23 @@ namespace Proyecto_FinalP2.Menu_Principal
 
             if (param == "")
             {
-                grvGruposEntidades.DataSource = ntent.Listar();
+                grvTiposEntidades.DataSource = ntent.Listar();
             }
             else
             {
-                grvGruposEntidades.DataSource = ntent.Buscar(param);
+                grvTiposEntidades.DataSource = ntent.Buscar(param);
             }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id=Convert.ToInt32(grvGruposEntidades.CurrentRow.Cells[0].ToString());
-            txtID.Text=grvGruposEntidades.CurrentRow.Cells[0].ToString();
-            txtComment.Text=grvGruposEntidades.CurrentRow.Cells[1].ToString();
-            cmbGrEnt.Text=grvGruposEntidades.CurrentRow.Cells[2].ToString();
-            txtID.Text=grvGruposEntidades.CurrentRow.Cells[3].ToString();
-            cmbStatus.Text=grvGruposEntidades.CurrentRow.Cells[4].ToString();
-            chkNoElim.Checked = grvGruposEntidades.CurrentRow.Cells[5].ToString() == "1" ? true : false;
+            id=Convert.ToInt32(grvTiposEntidades.CurrentRow.Cells[0].ToString());
+            txtID.Text=grvTiposEntidades.CurrentRow.Cells[0].ToString();
+            txtDesc.Text=grvTiposEntidades.CurrentRow.Cells[1].ToString();
+            cmbGrEnt.Text=grvTiposEntidades.CurrentRow.Cells[2].ToString();
+            txtComment.Text=grvTiposEntidades.CurrentRow.Cells[3].ToString();
+            cmbStatus.Text=grvTiposEntidades.CurrentRow.Cells[4].ToString();
+            chkNoElim.Checked = grvTiposEntidades.CurrentRow.Cells[5].ToString() == "1" ? true : false;
 
              btnadd.Enabled=false;
              btnupdate.Enabled=true;
@@ -175,7 +175,7 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private void btnrefrescar_Click(object sender, EventArgs e)
         {
-            grvGruposEntidades.DataSource = ntent.Listar();
+            grvTiposEntidades.DataSource = ntent.Listar();
         }
     }
 }

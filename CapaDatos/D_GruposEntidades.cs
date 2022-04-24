@@ -104,7 +104,7 @@ namespace CapaDatos
         /// Actualiza un registro de la tabla GruposEntidades
         /// </summary>
         /// <returns>El numero de filas modificadas, o un mensaje en caso de error</returns>
-        public int UpdateGrEntidades(int id, string desc, string comment, string status, int noElim)
+        public int Update(int id, string desc, string comment, string status, int noElim)
         {
             int rows;
 
@@ -143,7 +143,7 @@ namespace CapaDatos
         /// Elimina un registro de la tabla GruposEntidades
         /// </summary>
         /// <returns>El numero de registros eliminados o un mensaje en caso de error</returns>
-        public int DeleteGrEntidades(int id)
+        public int Delete(int id)
         {
             int rows;
 
@@ -178,7 +178,7 @@ namespace CapaDatos
         /// Metodo para buscar registros en la tabla GruposEntidades
         /// </summary>
         /// <returns>Un DataTable con los registros que coinciden con los parametros de busqueda</returns>
-        public DataTable BuscarGrEntidades(string parametro)
+        public DataTable Buscar(string parametro)
         {
             dt = new DataTable();
 

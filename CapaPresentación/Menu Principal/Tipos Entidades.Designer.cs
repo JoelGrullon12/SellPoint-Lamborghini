@@ -47,7 +47,7 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.grvGruposEntidades = new System.Windows.Forms.DataGridView();
+            this.grvTiposEntidades = new System.Windows.Forms.DataGridView();
             this.btnrefrescar = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvGruposEntidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTiposEntidades)).BeginInit();
             this.SuspendLayout();
             // 
             // Minimizar
@@ -140,7 +140,7 @@
             this.panelPrincipal.Controls.Add(this.txtID);
             this.panelPrincipal.Controls.Add(this.label3);
             this.panelPrincipal.Controls.Add(this.label2);
-            this.panelPrincipal.Controls.Add(this.grvGruposEntidades);
+            this.panelPrincipal.Controls.Add(this.grvTiposEntidades);
             this.panelPrincipal.Controls.Add(this.btnrefrescar);
             this.panelPrincipal.Controls.Add(this.btnadd);
             this.panelPrincipal.Controls.Add(this.btnSearch);
@@ -276,16 +276,16 @@
             this.label2.TabIndex = 49;
             this.label2.Text = "ID";
             // 
-            // grvGruposEntidades
+            // grvTiposEntidades
             // 
-            this.grvGruposEntidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grvGruposEntidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.grvGruposEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvGruposEntidades.Location = new System.Drawing.Point(288, 74);
-            this.grvGruposEntidades.Name = "grvGruposEntidades";
-            this.grvGruposEntidades.Size = new System.Drawing.Size(582, 335);
-            this.grvGruposEntidades.TabIndex = 48;
-            this.grvGruposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.grvTiposEntidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grvTiposEntidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grvTiposEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvTiposEntidades.Location = new System.Drawing.Point(288, 74);
+            this.grvTiposEntidades.Name = "grvTiposEntidades";
+            this.grvTiposEntidades.Size = new System.Drawing.Size(582, 335);
+            this.grvTiposEntidades.TabIndex = 48;
+            this.grvTiposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnrefrescar
             // 
@@ -379,7 +379,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panelPrincipal.ResumeLayout(false);
             this.panelPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvGruposEntidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTiposEntidades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -401,7 +401,7 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView grvGruposEntidades;
+        private System.Windows.Forms.DataGridView grvTiposEntidades;
         private System.Windows.Forms.Button btnrefrescar;
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.Button btnSearch;

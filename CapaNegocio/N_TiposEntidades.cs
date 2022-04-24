@@ -11,6 +11,7 @@ namespace CapaNegocio
     public class N_TiposEntidades
     {
         D_TiposEntidades dtent = new D_TiposEntidades();
+        D_GruposEntidades dgent = new D_GruposEntidades();
 
         public string msg;
         public int rows = 0;
@@ -49,13 +50,13 @@ namespace CapaNegocio
         }
 
         public string[] CargarGrEntidad(){
-            DataTable tbTpEnt=dtent.Listar();
+            DataTable tbTpEnt= dgent.Listar();
             int o=tbTpEnt.Rows.Count;
             string[] grEnt=new string[o];
 
             for (int i = 0; i < o; i++)
             {
-                grEnt[i]=tbTpEnt.Rows[i][13].ToString();
+                grEnt[i]=tbTpEnt.Rows[i][0].ToString();
             }
 
             return grEnt;
