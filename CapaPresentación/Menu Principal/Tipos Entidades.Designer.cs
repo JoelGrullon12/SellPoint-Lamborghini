@@ -289,6 +289,7 @@
             this.btnadd.TabIndex = 45;
             this.btnadd.Text = "Añadir";
             this.btnadd.UseVisualStyleBackColor = false;
+            this.btnadd.Click+=new System.EventHandler(this.btnAdd_Click);
             // 
             // btnsearch
             // 
@@ -302,6 +303,7 @@
             this.btnsearch.TabIndex = 44;
             this.btnsearch.Text = "Buscar";
             this.btnsearch.UseVisualStyleBackColor = false;
+            this.btnsearch.Click+=new System.EventHandler(this.btnsearch_Click);
             // 
             // btnupdate
             // 
@@ -311,11 +313,13 @@
             this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnupdate.Location = new System.Drawing.Point(605, 402);
             this.btnupdate.Name = "btnupdate";
+            this.btnupdate.Enabled=false;
             this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnupdate.Size = new System.Drawing.Size(96, 36);
             this.btnupdate.TabIndex = 43;
             this.btnupdate.Text = "Actualizar";
             this.btnupdate.UseVisualStyleBackColor = false;
+            this.btnupdate.Click+=new System.EventHandler(this.btnupdate_Click);
             // 
             // btndelete
             // 
@@ -328,7 +332,9 @@
             this.btndelete.Size = new System.Drawing.Size(96, 36);
             this.btndelete.TabIndex = 42;
             this.btndelete.Text = "Eliminar";
+            this.btndelete.Enabled=false;
             this.btndelete.UseVisualStyleBackColor = false;
+            this.btndelete.Click+=new System.EventHandler(this.btndelete_Click);
             // 
             // Tipos_Entidades
             // 

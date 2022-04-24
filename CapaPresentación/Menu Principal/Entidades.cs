@@ -17,9 +17,32 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private int xClick;
         private int yClick;
+        private int id=0;
         public Entidades()
         {
             InitializeComponent();
+
+            CargarDatos();
+            CargarComboBoxes();
+        }
+
+        private void CargarDatos(){
+            grvEntidades.DataSource=nent.Listar();
+        }
+
+        private void CargarComboBoxes(){
+            string[] tpEnt=nent.CargarTpEntidad();
+            string[] grEnt=nent.CargarGrEntidad();
+
+            for (int i = 0; i < tpEnt.Length; i++)
+            {
+                cmbIdTpEnt.Items.Add(tpEnt[i]);
+            }
+
+            for (int i = 0; i < grEnt.Length; i++)
+            {
+                cmbIdTpEnt.Items.Add(grEnt[i]);
+            }
         }
 
         private void Cerrar_Click(object sender, EventArgs e)
@@ -121,29 +144,85 @@ namespace Proyecto_FinalP2.Menu_Principal
             }
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            string desc = txtDesc.Text;
+            string dir = txtDir.Text;
+            string local = txtLocal.Text;
+            string tpEnttxt = cmbTpEnt.Text;
+            string tpDoc = cmbTpDoc.Text;
+            int numeroDoc = (int)numDoc.Value;
+            string tel = txtTel.Text;
+            string urlWeb = txtWeb.Text;
+            string urlFB = txtFB.Text;
+            string urlIG = txtIG.Text;
+            string urlTW = txtTW.Text;
+            string urlTK = txtTK.Text;
+            int grEnt = Convert.ToInt32(cmbIdGrEnt.Text);
+            int tpEnt = Convert.ToInt32(cmbIdTpEnt.Text);
+            int limCred = (int)numCred.Value;
+            string usu = txtUser.Text;
+            string pass = txtPass.Text;
+            string rol = cmbRol.Text;
+            string comment = txtComment.Text;
+            string status = boxStatus.Text;
+            bool noElim = NoEliminable.Checked;
+
+            if (desc == "" || dir == "" || local == "" || numeroDoc == 0
+                || tel == "" || usu == "" || pass == "")
+            {
+                MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
+                    "\nDescripcion\nDireccion\nLocalidad\nNumero de Documento\nTelefonos\nUsuario\nContraseña",
+                    "Debe rellenar todos los campos requeridos");
+            }
+            else
+            {
+                nent.Update(id, desc, dir, local, tpEnttxt, tpDoc, numeroDoc, tel, urlWeb, urlFB, urlIG, urlTW,
+                urlTK, grEnt, tpEnt, limCred, usu, pass, rol, comment, status, noElim);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int res=nent.Delete(id);
+            if(res==1){
+                MessageBox.Show("Registro eliminado con exito\n"+nent.rows.ToString()+" afectadas", "Registros eliminados");
+            }else if(res==3){
+                MessageBox.Show("Se ha producido un error en la base de datos\n"+nent.msg, "Error de SLQ detectado");
+            }else if(res==4){
+                MessageBox.Show("Se ha producido un error inesperado\n"+nent.msg, "Error inesperado detectado");
+            }
+        }
+
         private void grvEntidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //txtDesc.Text=grvEntidades.CurrentRow.Cells[1];
-            //string dir = txtDir.Text;
-            //string local = txtLocal.Text;
-            //string tpEnttxt = cmbTpEnt.Text;
-            //string tpDoc = cmbTpDoc.Text;
-            //int numeroDoc = (int)numDoc.Value;
-            //string tel = txtTel.Text;
-            //string urlWeb = txtWeb.Text;
-            //string urlFB = txtFB.Text;
-            //string urlIG = txtIG.Text;
-            //string urlTW = txtTW.Text;
-            //string urlTK = txtTK.Text;
-            //string grEnt = cmbIdGrEnt.Text;
-            //string tpEnt = cmbIdTpEnt.Text;
-            //int limCred = (int)numCred.Value;
-            //string usu = txtUser.Text;
-            //string pass = txtPass.Text;
-            //string rol = cmbRol.Text;
-            //string comment = txtComment.Text;
-            //string status = boxStatus.Text;
-            //bool noElim = NoEliminable.Checked;
+            id=grvEntidades.CurrentRow.Cells[0].ToString();
+            txtID.Text=grvEntidades.CurrentRow.Cells[0].ToString();
+            txtDesc.Text=grvEntidades.CurrentRow.Cells[1].ToString();
+            txtDir.Text=grvEntidades.CurrentRow.Cells[2].ToString();
+            txtLocal.Text=grvEntidades.CurrentRow.Cells[3].ToString();
+            cmbTpEnt.Text=grvEntidades.CurrentRow.Cells[4].ToString();
+            cmbTpDoc.Text=grvEntidades.CurrentRow.Cells[5].ToString();
+            numDoc.Value=Convert.ToInt32(grvEntidades.CurrentRow.Cells[6]);
+            txtTel.Text=grvEntidades.CurrentRow.Cells[7].ToString();
+             txtWeb.Text=grvEntidades.CurrentRow.Cells[8].ToString();
+             txtFB.Text=grvEntidades.CurrentRow.Cells[9].ToString();
+             txtIG.Text=grvEntidades.CurrentRow.Cells[10].ToString();
+             txtTW.Text=grvEntidades.CurrentRow.Cells[11].ToString();
+             txtTK.Text=grvEntidades.CurrentRow.Cells[12].ToString();
+             cmbIdGrEnt.Text=grvEntidades.CurrentRow.Cells[13].ToString();
+             cmbIdTpEnt.Text=grvEntidades.CurrentRow.Cells[14].ToString();
+            numCred.Value=Convert.ToInt32(grvEntidades.CurrentRow.Cells[15].ToString());
+             txtUser.Text=grvEntidades.CurrentRow.Cells[16].ToString();
+             txtPass.Text=grvEntidades.CurrentRow.Cells[17].ToString();
+             cmbRol.Text=grvEntidades.CurrentRow.Cells[18].ToString();
+             txtComment.Text=grvEntidades.CurrentRow.Cells[19].ToString();
+             boxStatus.Text=grvEntidades.CurrentRow.Cells[20].ToString();
+             NoEliminable.Checked=grvEntidades.CurrentRow.Cells[21].ToString()=="1"?true:false;
+
+             btnAgregar.Enabled=false;
+             btnEdit.Enabled=true;
+             btnDelete.Enabled=true;
         }
     }
 }

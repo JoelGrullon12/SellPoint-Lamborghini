@@ -56,5 +56,31 @@ namespace CapaNegocio
             msg = dent.msg;
             return dent.Buscar(param);
         }
+
+        public string[] CargarTpEntidad(){
+            DataTable tbEnt=dent.Listar();
+            int o=tbEnt.Rows.Count;
+            string[] tpEnt=new string[o];
+
+            for (int i = 0; i < o; i++)
+            {
+                tpEnt[i]=tbEnt.Rows[i][14];
+            }
+
+            return tpEnt;
+        }
+
+        public string[] CargarGrEntidad(){
+            DataTable tbEnt=dent.Listar();
+            int o=tbEnt.Rows.Count;
+            string[] grEnt=new string[o];
+
+            for (int i = 0; i < o; i++)
+            {
+                grEnt[i]=tbEnt.Rows[i][13];
+            }
+
+            return grEnt;
+        }
     }
 }
