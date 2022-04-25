@@ -189,7 +189,6 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Enabled = false;
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(490, 407);
             this.txtBuscar.Name = "txtBuscar";
@@ -250,7 +249,6 @@
             // 
             // txtPass
             // 
-            this.txtPass.Enabled = false;
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(218, 16);
             this.txtPass.Name = "txtPass";
@@ -305,6 +303,8 @@
             this.txtFB.Size = new System.Drawing.Size(160, 21);
             this.txtFB.TabIndex = 48;
             this.txtFB.Text = "Url Facebook";
+            this.txtFB.Enter += new System.EventHandler(this.txtFB_Enter);
+            this.txtFB.Leave += new System.EventHandler(this.txtFB_Leave);
             // 
             // txtTW
             // 
@@ -314,6 +314,8 @@
             this.txtTW.Size = new System.Drawing.Size(160, 21);
             this.txtTW.TabIndex = 49;
             this.txtTW.Text = "Url Twitter";
+            this.txtTW.Enter += new System.EventHandler(this.txtTW_Enter);
+            this.txtTW.Leave += new System.EventHandler(this.txtTW_Leave);
             // 
             // label12
             // 
@@ -334,6 +336,8 @@
             this.txtTK.Size = new System.Drawing.Size(160, 21);
             this.txtTK.TabIndex = 50;
             this.txtTK.Text = "Url TikTok";
+            this.txtTK.Enter += new System.EventHandler(this.txtTK_Enter);
+            this.txtTK.Leave += new System.EventHandler(this.txtTK_Leave);
             // 
             // cmbRol
             // 
@@ -357,6 +361,8 @@
             this.txtIG.Size = new System.Drawing.Size(160, 21);
             this.txtIG.TabIndex = 51;
             this.txtIG.Text = "Url Instagram";
+            this.txtIG.Enter += new System.EventHandler(this.txtIG_Enter);
+            this.txtIG.Leave += new System.EventHandler(this.txtIG_Leave);
             // 
             // txtWeb
             // 
@@ -366,6 +372,8 @@
             this.txtWeb.Size = new System.Drawing.Size(160, 21);
             this.txtWeb.TabIndex = 53;
             this.txtWeb.Text = "Url Pagina Web";
+            this.txtWeb.Enter += new System.EventHandler(this.txtWeb_Enter);
+            this.txtWeb.Leave += new System.EventHandler(this.txtWeb_Leave);
             // 
             // label11
             // 
@@ -430,9 +438,11 @@
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.grvEntidades.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.grvEntidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvEntidades.Size = new System.Drawing.Size(857, 195);
             this.grvEntidades.TabIndex = 72;
             this.grvEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvEntidades_CellContentClick);
+            this.grvEntidades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvEntidades_CellDoubleClick);
             // 
             // groupBox2
             // 
@@ -461,6 +471,11 @@
             // numCred
             // 
             this.numCred.Location = new System.Drawing.Point(442, 17);
+            this.numCred.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.numCred.Name = "numCred";
             this.numCred.Size = new System.Drawing.Size(120, 20);
             this.numCred.TabIndex = 72;
@@ -468,6 +483,11 @@
             // numDoc
             // 
             this.numDoc.Location = new System.Drawing.Point(205, 18);
+            this.numDoc.Maximum = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
             this.numDoc.Name = "numDoc";
             this.numDoc.Size = new System.Drawing.Size(120, 20);
             this.numDoc.TabIndex = 71;

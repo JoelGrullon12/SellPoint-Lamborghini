@@ -169,14 +169,10 @@
             // cmbGrEnt
             // 
             this.cmbGrEnt.FormattingEnabled = true;
-            this.cmbGrEnt.Items.AddRange(new object[] {
-            "Activa",
-            "Inactiva"});
             this.cmbGrEnt.Location = new System.Drawing.Point(22, 440);
             this.cmbGrEnt.Name = "cmbGrEnt";
             this.cmbGrEnt.Size = new System.Drawing.Size(140, 21);
             this.cmbGrEnt.TabIndex = 54;
-            this.cmbGrEnt.Text = "Activa";
             // 
             // label4
             // 
@@ -226,7 +222,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(32, 20);
             this.txtID.TabIndex = 51;
-            this.txtID.Text = "000";
+            this.txtID.Text = "0";
             // 
             // label3
             // 
@@ -255,11 +251,14 @@
             this.grvTiposEntidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grvTiposEntidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grvTiposEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvTiposEntidades.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.grvTiposEntidades.Location = new System.Drawing.Point(288, 74);
             this.grvTiposEntidades.Name = "grvTiposEntidades";
+            this.grvTiposEntidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvTiposEntidades.Size = new System.Drawing.Size(582, 335);
             this.grvTiposEntidades.TabIndex = 48;
             this.grvTiposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.grvTiposEntidades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvTiposEntidades_CellDoubleClick);
             // 
             // label6
             // 

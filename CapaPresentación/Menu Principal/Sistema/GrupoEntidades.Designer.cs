@@ -242,11 +242,14 @@ namespace CapaPresentación.Menu_Principal.Sistema
             this.grvGruposEntidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grvGruposEntidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.grvGruposEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvGruposEntidades.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.grvGruposEntidades.Location = new System.Drawing.Point(288, 53);
             this.grvGruposEntidades.Name = "grvGruposEntidades";
+            this.grvGruposEntidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvGruposEntidades.Size = new System.Drawing.Size(582, 335);
             this.grvGruposEntidades.TabIndex = 30;
             this.grvGruposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvGruposEntidades_CellContentClick);
+            this.grvGruposEntidades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvGruposEntidades_CellDoubleClick);
             // 
             // btnrefrescar
             // 
