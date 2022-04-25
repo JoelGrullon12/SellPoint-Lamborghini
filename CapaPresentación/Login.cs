@@ -20,11 +20,11 @@ namespace CapaPresentación
 
         public Login()
         {
-            //Thread t = new Thread(new ThreadStart(StartForm));
-            //t.Start();
-            //Thread.Sleep(5000);
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
-            //t.Abort();
+            t.Abort();
         }
 
         public void StartForm()
