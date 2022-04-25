@@ -32,7 +32,13 @@
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Cerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
+            this.btnrefrescar = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnupdate = new System.Windows.Forms.Button();
+            this.btndelete = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.chkNoElim = new System.Windows.Forms.CheckBox();
@@ -46,12 +52,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvTiposEntidades = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnadd = new System.Windows.Forms.Button();
-            this.btndelete = new System.Windows.Forms.Button();
-            this.btnupdate = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnrefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).BeginInit();
             this.panel2.SuspendLayout();
@@ -100,6 +100,17 @@
             this.panel2.TabIndex = 4;
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 19);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Tipos Entidades";
+            // 
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
@@ -127,13 +138,106 @@
             this.panel.TabIndex = 5;
             this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelPrincipal_MouseMove);
             // 
+            // btnrefrescar
+            // 
+            this.btnrefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnrefrescar.FlatAppearance.BorderSize = 0;
+            this.btnrefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnrefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrefrescar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrefrescar.ForeColor = System.Drawing.Color.White;
+            this.btnrefrescar.Image = ((System.Drawing.Image)(resources.GetObject("btnrefrescar.Image")));
+            this.btnrefrescar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnrefrescar.Location = new System.Drawing.Point(876, 90);
+            this.btnrefrescar.Name = "btnrefrescar";
+            this.btnrefrescar.Size = new System.Drawing.Size(174, 45);
+            this.btnrefrescar.TabIndex = 12;
+            this.btnrefrescar.Text = "Refrescar";
+            this.btnrefrescar.UseVisualStyleBackColor = true;
+            this.btnrefrescar.Click += new System.EventHandler(this.btnrefrescar_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(775, 37);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(134, 32);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnsearch_Click);
+            // 
+            // btnupdate
+            // 
+            this.btnupdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnupdate.Enabled = false;
+            this.btnupdate.FlatAppearance.BorderSize = 0;
+            this.btnupdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnupdate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnupdate.ForeColor = System.Drawing.Color.White;
+            this.btnupdate.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.Image")));
+            this.btnupdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnupdate.Location = new System.Drawing.Point(550, 419);
+            this.btnupdate.Name = "btnupdate";
+            this.btnupdate.Size = new System.Drawing.Size(174, 45);
+            this.btnupdate.TabIndex = 8;
+            this.btnupdate.Text = "Actualizar";
+            this.btnupdate.UseVisualStyleBackColor = true;
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
+            // 
+            // btndelete
+            // 
+            this.btndelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btndelete.Enabled = false;
+            this.btndelete.FlatAppearance.BorderSize = 0;
+            this.btndelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndelete.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndelete.ForeColor = System.Drawing.Color.White;
+            this.btndelete.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.Image")));
+            this.btndelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndelete.Location = new System.Drawing.Point(730, 418);
+            this.btndelete.Name = "btndelete";
+            this.btndelete.Size = new System.Drawing.Size(150, 45);
+            this.btndelete.TabIndex = 9;
+            this.btndelete.Text = "Eliminar";
+            this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            // 
+            // btnadd
+            // 
+            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
+            this.btnadd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnadd.FlatAppearance.BorderSize = 0;
+            this.btnadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnadd.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadd.ForeColor = System.Drawing.Color.White;
+            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
+            this.btnadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnadd.Location = new System.Drawing.Point(386, 421);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(158, 40);
+            this.btnadd.TabIndex = 7;
+            this.btnadd.Text = "Añadir";
+            this.btnadd.UseVisualStyleBackColor = false;
+            this.btnadd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(289, 37);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(480, 32);
-            this.txtSearch.TabIndex = 57;
+            this.txtSearch.TabIndex = 10;
             // 
             // txtDesc
             // 
@@ -141,7 +245,7 @@
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(270, 113);
-            this.txtDesc.TabIndex = 57;
+            this.txtDesc.TabIndex = 2;
             // 
             // chkNoElim
             // 
@@ -151,7 +255,7 @@
             this.chkNoElim.Location = new System.Drawing.Point(21, 473);
             this.chkNoElim.Name = "chkNoElim";
             this.chkNoElim.Size = new System.Drawing.Size(131, 22);
-            this.chkNoElim.TabIndex = 56;
+            this.chkNoElim.TabIndex = 6;
             this.chkNoElim.Text = "No Eliminable";
             this.chkNoElim.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +276,7 @@
             this.cmbGrEnt.Location = new System.Drawing.Point(22, 440);
             this.cmbGrEnt.Name = "cmbGrEnt";
             this.cmbGrEnt.Size = new System.Drawing.Size(140, 21);
-            this.cmbGrEnt.TabIndex = 54;
+            this.cmbGrEnt.TabIndex = 5;
             // 
             // label4
             // 
@@ -194,7 +298,7 @@
             this.cmbStatus.Location = new System.Drawing.Point(20, 388);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(140, 21);
-            this.cmbStatus.TabIndex = 54;
+            this.cmbStatus.TabIndex = 4;
             this.cmbStatus.Text = "Activa";
             // 
             // txtComment
@@ -203,7 +307,7 @@
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(270, 113);
-            this.txtComment.TabIndex = 53;
+            this.txtComment.TabIndex = 3;
             // 
             // label5
             // 
@@ -221,7 +325,7 @@
             this.txtID.Location = new System.Drawing.Point(16, 44);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(32, 20);
-            this.txtID.TabIndex = 51;
+            this.txtID.TabIndex = 1;
             this.txtID.Text = "0";
             // 
             // label3
@@ -259,103 +363,6 @@
             this.grvTiposEntidades.TabIndex = 48;
             this.grvTiposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.grvTiposEntidades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvTiposEntidades_CellDoubleClick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 19);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Tipos Entidades";
-            // 
-            // btnadd
-            // 
-            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
-            this.btnadd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnadd.FlatAppearance.BorderSize = 0;
-            this.btnadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadd.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadd.ForeColor = System.Drawing.Color.White;
-            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
-            this.btnadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnadd.Location = new System.Drawing.Point(386, 421);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(158, 40);
-            this.btnadd.TabIndex = 58;
-            this.btnadd.Text = "Añadir";
-            this.btnadd.UseVisualStyleBackColor = false;
-            // 
-            // btndelete
-            // 
-            this.btndelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btndelete.FlatAppearance.BorderSize = 0;
-            this.btndelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndelete.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndelete.ForeColor = System.Drawing.Color.White;
-            this.btndelete.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.Image")));
-            this.btndelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btndelete.Location = new System.Drawing.Point(730, 418);
-            this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(150, 45);
-            this.btndelete.TabIndex = 59;
-            this.btndelete.Text = "Eliminar";
-            this.btndelete.UseVisualStyleBackColor = true;
-            // 
-            // btnupdate
-            // 
-            this.btnupdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnupdate.FlatAppearance.BorderSize = 0;
-            this.btnupdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnupdate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnupdate.ForeColor = System.Drawing.Color.White;
-            this.btnupdate.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.Image")));
-            this.btnupdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnupdate.Location = new System.Drawing.Point(550, 419);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(174, 45);
-            this.btnupdate.TabIndex = 60;
-            this.btnupdate.Text = "Actualizar";
-            this.btnupdate.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(775, 37);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(134, 32);
-            this.btnSearch.TabIndex = 61;
-            this.btnSearch.Text = "Buscar";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnrefrescar
-            // 
-            this.btnrefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnrefrescar.FlatAppearance.BorderSize = 0;
-            this.btnrefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnrefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnrefrescar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrefrescar.ForeColor = System.Drawing.Color.White;
-            this.btnrefrescar.Image = ((System.Drawing.Image)(resources.GetObject("btnrefrescar.Image")));
-            this.btnrefrescar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnrefrescar.Location = new System.Drawing.Point(876, 90);
-            this.btnrefrescar.Name = "btnrefrescar";
-            this.btnrefrescar.Size = new System.Drawing.Size(174, 45);
-            this.btnrefrescar.TabIndex = 62;
-            this.btnrefrescar.Text = "Refrescar";
-            this.btnrefrescar.UseVisualStyleBackColor = true;
             // 
             // Tipos_Entidades
             // 

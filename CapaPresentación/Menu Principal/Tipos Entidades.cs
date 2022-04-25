@@ -22,8 +22,8 @@ namespace Proyecto_FinalP2.Menu_Principal
         {
             InitializeComponent();
 
-            //CargarDatos();
-            //CargarComboBoxes();
+            CargarDatos();
+            CargarComboBoxes();
         }
 
         private void CargarDatos(){
@@ -38,6 +38,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             for (int i = 0; i < grEnt.Length; i++)
             {
                 cmbGrEnt.Items.Add(grEnt[i]);
+                cmbGrEnt.SelectedIndex = 0;
             }
         }
 
