@@ -22,6 +22,13 @@ namespace CapaPresentación.Menu_Principal.Sistema
         public GrupoEntidades()
         {
             InitializeComponent();
+
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
+            grvGruposEntidades.DataSource = ngent.Listar();
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -73,8 +80,8 @@ namespace CapaPresentación.Menu_Principal.Sistema
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            string desc = txtComment.Text;
-            string comment = txtID.Text;
+            string desc = txtDesc.Text;
+            string comment = txtComment.Text;
             string status = cmbStatus.Text;
             bool noElim = chkNoElim.Checked;
 
@@ -85,7 +92,27 @@ namespace CapaPresentación.Menu_Principal.Sistema
             }
             else
             {
-                ngent.Update(id, desc, comment, status, noElim);
+                int result=ngent.Update(id, desc, comment, status, noElim);
+
+                switch (result)
+                {
+                    case 1:
+                        LimpiarCampos();
+                        CargarDatos();
+                        MessageBox.Show("Datos actualizados con exito en la base de datos",
+                    "Operacion exitosa");
+                        break;
+
+                    case 3:
+                        MessageBox.Show("Se ha detectado un error referente a la conexion con SQL:\n" + ngent.msg,
+                    "Error de SQL");
+                        break;
+
+                    case 4:
+                        MessageBox.Show("Se ha detectado un error inesperado:\n" + ngent.msg,
+                    "Error");
+                        break;
+                }
             }
         }
 
@@ -105,8 +132,8 @@ namespace CapaPresentación.Menu_Principal.Sistema
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-            string desc = txtComment.Text;
-            string comment = txtID.Text;
+            string desc = txtDesc.Text;
+            string comment = txtComment.Text;
             string status = cmbStatus.Text;
             bool noElim = chkNoElim.Checked;
 
@@ -117,34 +144,62 @@ namespace CapaPresentación.Menu_Principal.Sistema
             }
             else
             {
-                ngent.Insert(desc, comment, status, noElim);
+                int result=ngent.Insert(desc, comment, status, noElim);
+
+                switch (result)
+                {
+                    case 1:
+                        LimpiarCampos();
+                        CargarDatos();
+                        MessageBox.Show("Datos insertados con exito en la base de datos",
+                    "Operacion exitosa");
+                        break;
+
+                    case 3:
+                        MessageBox.Show("Se ha detectado un error referente a la conexion con SQL:\n" + ngent.msg,
+                    "Error de SQL");
+                        break;
+
+                    case 4:
+                        MessageBox.Show("Se ha detectado un error inesperado:\n" + ngent.msg,
+                    "Error");
+                        break;
+                }
             }
         }
 
         private void btndelete_Click(object sender, EventArgs e)
         {
-            int res = ngent.Delete(id);
-            if (res == 1)
+            int result = ngent.Delete(id);
+
+            switch (result)
             {
-                MessageBox.Show("Registro eliminado con exito\n" + ngent.rows.ToString() + " afectadas", "Registros eliminados");
-                LimpiarCampos();
-            }
-            else if (res == 3)
-            {
-                MessageBox.Show("Se ha producido un error en la base de datos\n" + ngent.msg, "Error de SLQ detectado");
-            }
-            else if (res == 4)
-            {
-                MessageBox.Show("Se ha producido un error inesperado\n" + ngent.msg, "Error inesperado detectado");
+                case 1:
+                    LimpiarCampos();
+                    CargarDatos();
+                    MessageBox.Show("Datos eliminados con exito en la base de datos",
+                "Operacion exitosa");
+                    break;
+
+                case 3:
+                    MessageBox.Show("Se ha detectado un error referente a la conexion con SQL:\n" + ngent.msg,
+                "Error de SQL");
+                    break;
+
+                case 4:
+                    MessageBox.Show("Se ha detectado un error inesperado:\n" + ngent.msg,
+                "Error");
+                    break;
             }
         }
 
         private void LimpiarCampos()
         {
-            txtID.Text = "000";
+            txtID.Text = "0";
             txtComment.Text = "";
             txtDesc.Text = "";
             cmbStatus.SelectedIndex = 0;
+            chkNoElim.Checked = false;
 
             btnadd.Enabled = true;
             btndelete.Enabled = false;
@@ -153,21 +208,26 @@ namespace CapaPresentación.Menu_Principal.Sistema
 
         private void grvGruposEntidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = Convert.ToInt32(grvGruposEntidades.CurrentRow.Cells[0].ToString());
-            txtID.Text = grvGruposEntidades.CurrentRow.Cells[0].ToString();
-            txtDesc.Text = grvGruposEntidades.CurrentRow.Cells[1].ToString();
-            txtComment.Text = grvGruposEntidades.CurrentRow.Cells[3].ToString();
-            cmbStatus.Text = grvGruposEntidades.CurrentRow.Cells[4].ToString();
-            chkNoElim.Checked = grvGruposEntidades.CurrentRow.Cells[5].ToString() == "1" ? true : false;
-
-            btnadd.Enabled = false;
-            btnupdate.Enabled = true;
-            btndelete.Enabled = true;
+            
         }
 
         private void btnrefrescar_Click(object sender, EventArgs e)
         {
             grvGruposEntidades.DataSource = ngent.Listar();
+        }
+
+        private void grvGruposEntidades_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id = Convert.ToInt32(grvGruposEntidades.CurrentRow.Cells[0].Value.ToString());
+            txtID.Text = grvGruposEntidades.CurrentRow.Cells[0].Value.ToString();
+            txtDesc.Text = grvGruposEntidades.CurrentRow.Cells[1].Value.ToString();
+            txtComment.Text = grvGruposEntidades.CurrentRow.Cells[2].Value.ToString();
+            cmbStatus.Text = grvGruposEntidades.CurrentRow.Cells[3].Value.ToString();
+            chkNoElim.Checked = Convert.ToBoolean(grvGruposEntidades.CurrentRow.Cells[4].Value.ToString());
+
+            btnadd.Enabled = false;
+            btnupdate.Enabled = true;
+            btndelete.Enabled = true;
         }
     }
 }

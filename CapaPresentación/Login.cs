@@ -125,25 +125,25 @@ namespace CapaPresentación
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //string user = txtuser.Text;
-            //string pass = txtpass.Text;
+            string user = txtuser.Text;
+            string pass = txtpass.Text;
             MenuPrincipal main = new MenuPrincipal();
-            //int acc = N_Login.Login(user, pass);
+            int acc = N_Login.Login(user, pass);
 
-            //if (acc == 1)
-            //{
+            if (acc == 1)
+            {
                 main.Show();
                 this.Hide();
-            //}
-            //else if (acc == 0)
-            //{
-            //    MessageBox.Show("Usuario y/o contraseña incorrectos", "Datos erroneos");
-            //}
-            //else if (acc == 45)
-            //{
-            //    MessageBox.Show(N_Login.msg, "Error");
+            }
+            else if (acc == 0)
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrectos", "Datos erroneos");
+            }
+            else if (acc == 45)
+            {
+                MessageBox.Show(N_Login.msg, "Error");
 
-            //}
+            }
         }
 
         private void btnLogin_KeyDown(object sender, KeyEventArgs e)
