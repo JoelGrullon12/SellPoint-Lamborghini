@@ -136,11 +136,11 @@ namespace Proyecto_FinalP2.Menu_Principal
                 switch (result)
                 {
                     case 1:
-                        MessageBox.Show("Datos insertados con exito en la base de datos",
-                    "Operacion exitosa");
                         LimpiarCampos();
                         CargarDatos();
                         CargarComboBoxes();
+                        MessageBox.Show("Datos insertados con exito en la base de datos",
+                    "Operacion exitosa");
                         break;
 
                     case 3:
@@ -210,11 +210,11 @@ namespace Proyecto_FinalP2.Menu_Principal
                 switch (result)
                 {
                     case 1:
-                        MessageBox.Show("Datos actualizados con exito en la base de datos",
-                    "Operacion exitosa");
                         LimpiarCampos();
                         CargarDatos();
                         CargarComboBoxes();
+                        MessageBox.Show("Datos actualizados con exito en la base de datos",
+                    "Operacion exitosa");
                         break;
 
                     case 3:
@@ -236,11 +236,11 @@ namespace Proyecto_FinalP2.Menu_Principal
             switch (result)
             {
                 case 1:
-                    MessageBox.Show("Datos eliminados con exito en la base de datos",
-                "Operacion exitosa");
                     LimpiarCampos();
                     CargarDatos();
                     CargarComboBoxes();
+                    MessageBox.Show("Datos eliminados con exito en la base de datos",
+                "Operacion exitosa");
                     break;
 
                 case 3:
@@ -264,7 +264,7 @@ namespace Proyecto_FinalP2.Menu_Principal
         {
             if (grvEntidades.CurrentRow.Index != grvEntidades.Rows.Count - 1)
             {
-                id = Convert.ToInt32(grvEntidades.CurrentRow.Cells["IdEntidad"].Value.ToString());
+                id = Convert.ToInt32(grvEntidades.CurrentRow.Cells[0].Value.ToString());
                 txtID.Text = grvEntidades.CurrentRow.Cells[0].Value.ToString();
                 txtDesc.Text = grvEntidades.CurrentRow.Cells[1].Value.ToString();
                 txtDir.Text = grvEntidades.CurrentRow.Cells[2].Value.ToString();
@@ -286,7 +286,7 @@ namespace Proyecto_FinalP2.Menu_Principal
                 cmbRol.Text = grvEntidades.CurrentRow.Cells[18].Value.ToString();
                 txtComment.Text = grvEntidades.CurrentRow.Cells[19].Value.ToString();
                 boxStatus.Text = grvEntidades.CurrentRow.Cells[20].Value.ToString();
-                NoEliminable.Checked = grvEntidades.CurrentRow.Cells[21].Value.ToString() == "1" ? true : false;
+                NoEliminable.Checked = Convert.ToBoolean(grvEntidades.CurrentRow.Cells[21].Value.ToString());
 
                 btnAgregar.Enabled = false;
                 btnEdit.Enabled = true;
@@ -296,7 +296,7 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private void LimpiarCampos()
         {
-            txtID.Text = "";
+            txtID.Text = "0";
             txtDesc.Text = "";
             txtDir.Text = "";
             txtLocal.Text = "";
