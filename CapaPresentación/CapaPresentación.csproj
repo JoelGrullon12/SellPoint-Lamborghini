@@ -141,7 +141,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Img\actualizar %281%29.png" />
+    <Content Include="Img\carpeta.png" />
+    <Content Include="Img\error.png" />
     <Content Include="Img\GimpSellPoint.png" />
+    <Content Include="Img\information.png" />
     <None Include="Resources\GimpsellpointBlue.png" />
     <None Include="Resources\Joel.PNG" />
     <None Include="Resources\Felix.PNG" />

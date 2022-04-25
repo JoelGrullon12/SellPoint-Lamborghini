@@ -22,8 +22,8 @@ namespace Proyecto_FinalP2.Menu_Principal
         {
             InitializeComponent();
 
-            CargarDatos();
-            CargarComboBoxes();
+            //CargarDatos();
+            //CargarComboBoxes();
         }
 
         private void CargarDatos(){

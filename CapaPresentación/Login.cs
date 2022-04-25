@@ -137,7 +137,8 @@ namespace CapaPresentación
             }
             else if (acc == 0)
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Datos erroneos");
+                Error.Visible = true;
+                Error.Text = "        Usuario y/ o contraseña incorrectos"; 
             }
             else if (acc == 45)
             {
