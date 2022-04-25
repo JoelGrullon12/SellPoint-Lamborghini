@@ -18,13 +18,15 @@ namespace CapaDatos
 
         public string msg;
         public int rows = 0;
-
+        
         /// <summary>
         /// Metodo que retorna todos los registros de la tabla GruposEntidades
         /// </summary>
         /// <returns>Retorna una variable DataTabe con todos los registros de la Tabla Entidades</returns>
+        /// 
         public DataTable Listar()
         {
+            
             dt = new DataTable();
 
             try
@@ -51,7 +53,7 @@ namespace CapaDatos
             }
             return dt;
         }
-
+        
 
         /// <summary>
         /// Metodo para insertar un registro en la tabla GruposEntidades

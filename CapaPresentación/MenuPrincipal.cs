@@ -38,6 +38,61 @@ namespace CapaPresentación
 
         }
 
+        private void GrupoEntidades(Object Form)
+        {
+            if (this.panelPr.Controls.Count > 4)
+                this.panelPr.Controls.RemoveAt(0);
+
+            Form Ven = Form as Form;
+            Ven.TopLevel = false;
+            Ven.Dock = DockStyle.Fill;
+            Ven.MdiParent = this;
+            this.panelPr.Controls.Add(Ven);
+            this.panelPr.Tag = Ven;
+            Ven.Show();
+        }
+
+        private void TipoEntidades(Object Form)
+        {
+            if (this.panelPr.Controls.Count > 4)
+                this.panelPr.Controls.RemoveAt(0);
+
+            Form Ven = Form as Form;
+            Ven.TopLevel = false;
+            Ven.Dock = DockStyle.Fill;
+            Ven.MdiParent = this;
+            this.panelPr.Controls.Add(Ven);
+            this.panelPr.Tag = Ven;
+            Ven.Show();
+        }
+
+        private void Entidades(Object Form)
+        {
+            if (this.panelPr.Controls.Count > 4)
+                this.panelPr.Controls.RemoveAt(0);
+
+            Form Ven = Form as Form;
+            Ven.TopLevel = false;
+            Ven.Dock = DockStyle.Fill;
+            Ven.MdiParent = this;
+            this.panelPr.Controls.Add(Ven);
+            this.panelPr.Tag = Ven;
+            Ven.Show();
+        }
+        private void AcercaDe(Object Form)
+        {
+            if (this.panelPr.Controls.Count > 4)
+                this.panelPr.Controls.RemoveAt(0);
+
+            Form Ven = Form as Form;
+            Ven.TopLevel = false;
+            Ven.Dock = DockStyle.Fill;
+            Ven.MdiParent = this;
+            this.panelPr.Controls.Add(Ven);
+            this.panelPr.Tag = Ven;
+            Ven.Show();
+        }
+
         private void MenuPrincipal_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -69,41 +124,38 @@ namespace CapaPresentación
 
         public void grupoEntidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GrupoEntidades grpenti = new GrupoEntidades();
-            grpenti.TopMost = true;
-            grpenti.MdiParent = this;
-            grpenti.Show();
+            GrupoEntidades(new GrupoEntidades());
+            panelPrincipal.Visible = false;
+            panelIzquierdo.Visible = false;
+
         }
 
         private void tipoEntidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Tipos_Entidades tipo = new Tipos_Entidades();
-            tipo.TopMost = true;
-            tipo.MdiParent = this;
-            tipo.Show();
+            TipoEntidades(new Tipos_Entidades());
+            panelPrincipal.Visible = false;
+            panelIzquierdo.Visible = false;
+
         }
 
         private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Entidades enti = new Entidades();
-            enti.TopMost = true;
-            enti.MdiParent = this;
-            enti.Show();
+            Entidades(new Entidades());
+            panelPrincipal.Visible = false;
+            panelIzquierdo.Visible = false;
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AcercaDe acer = new AcercaDe();
-            acer.TopMost = true;
-            acer.MdiParent = this;
-            acer.Show();
-            
+            AcercaDe(new AcercaDe());
+            panelPrincipal.Visible = false;
+            panelIzquierdo.Visible = false;
+
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login log = new Login();
-            log.TopMost = true;
             log.Show();
             this.Dispose();
         }
@@ -172,6 +224,11 @@ namespace CapaPresentación
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

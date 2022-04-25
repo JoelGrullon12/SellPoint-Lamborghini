@@ -32,9 +32,7 @@
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Cerrar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.chkNoElim = new System.Windows.Forms.CheckBox();
@@ -48,17 +46,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.grvTiposEntidades = new System.Windows.Forms.DataGridView();
-            this.btnrefrescar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnadd = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnupdate = new System.Windows.Forms.Button();
             this.btndelete = new System.Windows.Forms.Button();
+            this.btnupdate = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnrefrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.panelPrincipal.SuspendLayout();
+            this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvTiposEntidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +63,7 @@
             // 
             this.Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Minimizar.Image = ((System.Drawing.Image)(resources.GetObject("Minimizar.Image")));
-            this.Minimizar.Location = new System.Drawing.Point(927, 0);
+            this.Minimizar.Location = new System.Drawing.Point(967, 0);
             this.Minimizar.Name = "Minimizar";
             this.Minimizar.Size = new System.Drawing.Size(25, 25);
             this.Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -80,7 +77,7 @@
             // 
             this.Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Cerrar.Image = ((System.Drawing.Image)(resources.GetObject("Cerrar.Image")));
-            this.Cerrar.Location = new System.Drawing.Point(958, 0);
+            this.Cerrar.Location = new System.Drawing.Point(998, 0);
             this.Cerrar.Name = "Cerrar";
             this.Cerrar.Size = new System.Drawing.Size(25, 25);
             this.Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -92,66 +89,43 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.Minimizar);
             this.panel2.Controls.Add(this.Cerrar);
-            this.panel2.Controls.Add(this.btnMinimizar);
-            this.panel2.Controls.Add(this.btnCerrar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(984, 25);
+            this.panel2.Size = new System.Drawing.Size(1023, 25);
             this.panel2.TabIndex = 4;
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             // 
-            // btnMinimizar
+            // panel
             // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(986, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 5;
-            this.btnMinimizar.TabStop = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1017, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 5;
-            this.btnCerrar.TabStop = false;
-            // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Controls.Add(this.txtSearch);
-            this.panelPrincipal.Controls.Add(this.txtDesc);
-            this.panelPrincipal.Controls.Add(this.chkNoElim);
-            this.panelPrincipal.Controls.Add(this.label1);
-            this.panelPrincipal.Controls.Add(this.cmbGrEnt);
-            this.panelPrincipal.Controls.Add(this.label4);
-            this.panelPrincipal.Controls.Add(this.cmbStatus);
-            this.panelPrincipal.Controls.Add(this.txtComment);
-            this.panelPrincipal.Controls.Add(this.label5);
-            this.panelPrincipal.Controls.Add(this.txtID);
-            this.panelPrincipal.Controls.Add(this.label3);
-            this.panelPrincipal.Controls.Add(this.label2);
-            this.panelPrincipal.Controls.Add(this.grvTiposEntidades);
-            this.panelPrincipal.Controls.Add(this.btnrefrescar);
-            this.panelPrincipal.Controls.Add(this.btnadd);
-            this.panelPrincipal.Controls.Add(this.btnSearch);
-            this.panelPrincipal.Controls.Add(this.btnupdate);
-            this.panelPrincipal.Controls.Add(this.btndelete);
-            this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 25);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(984, 507);
-            this.panelPrincipal.TabIndex = 5;
-            this.panelPrincipal.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelPrincipal_MouseMove);
+            this.panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
+            this.panel.Controls.Add(this.btnrefrescar);
+            this.panel.Controls.Add(this.btnSearch);
+            this.panel.Controls.Add(this.btnupdate);
+            this.panel.Controls.Add(this.btndelete);
+            this.panel.Controls.Add(this.btnadd);
+            this.panel.Controls.Add(this.txtSearch);
+            this.panel.Controls.Add(this.txtDesc);
+            this.panel.Controls.Add(this.chkNoElim);
+            this.panel.Controls.Add(this.label1);
+            this.panel.Controls.Add(this.cmbGrEnt);
+            this.panel.Controls.Add(this.label4);
+            this.panel.Controls.Add(this.cmbStatus);
+            this.panel.Controls.Add(this.txtComment);
+            this.panel.Controls.Add(this.label5);
+            this.panel.Controls.Add(this.txtID);
+            this.panel.Controls.Add(this.label3);
+            this.panel.Controls.Add(this.label2);
+            this.panel.Controls.Add(this.grvTiposEntidades);
+            this.panel.Location = new System.Drawing.Point(0, 25);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(1020, 507);
+            this.panel.TabIndex = 5;
+            this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelPrincipal_MouseMove);
             // 
             // txtSearch
             // 
@@ -287,86 +261,110 @@
             this.grvTiposEntidades.TabIndex = 48;
             this.grvTiposEntidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // btnrefrescar
+            // label6
             // 
-            this.btnrefrescar.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnrefrescar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnrefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
-            this.btnrefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnrefrescar.Location = new System.Drawing.Point(876, 82);
-            this.btnrefrescar.Name = "btnrefrescar";
-            this.btnrefrescar.Size = new System.Drawing.Size(96, 36);
-            this.btnrefrescar.TabIndex = 47;
-            this.btnrefrescar.Text = "Refrescar";
-            this.btnrefrescar.UseVisualStyleBackColor = false;
-            this.btnrefrescar.Click += new System.EventHandler(this.btnrefrescar_Click);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(127, 19);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Tipos Entidades";
             // 
             // btnadd
             // 
-            this.btnadd.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnadd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
+            this.btnadd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnadd.FlatAppearance.BorderSize = 0;
+            this.btnadd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadd.Location = new System.Drawing.Point(572, 425);
+            this.btnadd.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnadd.ForeColor = System.Drawing.Color.White;
+            this.btnadd.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.Image")));
+            this.btnadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnadd.Location = new System.Drawing.Point(386, 421);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(96, 36);
-            this.btnadd.TabIndex = 45;
+            this.btnadd.Size = new System.Drawing.Size(158, 40);
+            this.btnadd.TabIndex = 58;
             this.btnadd.Text = "Añadir";
             this.btnadd.UseVisualStyleBackColor = false;
-            this.btnadd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Location = new System.Drawing.Point(774, 35);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(96, 36);
-            this.btnSearch.TabIndex = 44;
-            this.btnSearch.Text = "Buscar";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnsearch_Click);
-            // 
-            // btnupdate
-            // 
-            this.btnupdate.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnupdate.Enabled = false;
-            this.btnupdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnupdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
-            this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnupdate.Location = new System.Drawing.Point(674, 425);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnupdate.Size = new System.Drawing.Size(96, 36);
-            this.btnupdate.TabIndex = 43;
-            this.btnupdate.Text = "Actualizar";
-            this.btnupdate.UseVisualStyleBackColor = false;
-            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // btndelete
             // 
-            this.btndelete.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btndelete.Enabled = false;
-            this.btndelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btndelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btndelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btndelete.FlatAppearance.BorderSize = 0;
+            this.btndelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndelete.Location = new System.Drawing.Point(776, 425);
+            this.btndelete.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndelete.ForeColor = System.Drawing.Color.White;
+            this.btndelete.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.Image")));
+            this.btndelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndelete.Location = new System.Drawing.Point(730, 418);
             this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(96, 36);
-            this.btndelete.TabIndex = 42;
+            this.btndelete.Size = new System.Drawing.Size(150, 45);
+            this.btndelete.TabIndex = 59;
             this.btndelete.Text = "Eliminar";
-            this.btndelete.UseVisualStyleBackColor = false;
-            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            this.btndelete.UseVisualStyleBackColor = true;
+            // 
+            // btnupdate
+            // 
+            this.btnupdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnupdate.FlatAppearance.BorderSize = 0;
+            this.btnupdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnupdate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnupdate.ForeColor = System.Drawing.Color.White;
+            this.btnupdate.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.Image")));
+            this.btnupdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnupdate.Location = new System.Drawing.Point(550, 419);
+            this.btnupdate.Name = "btnupdate";
+            this.btnupdate.Size = new System.Drawing.Size(174, 45);
+            this.btnupdate.TabIndex = 60;
+            this.btnupdate.Text = "Actualizar";
+            this.btnupdate.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(775, 37);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(134, 32);
+            this.btnSearch.TabIndex = 61;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnrefrescar
+            // 
+            this.btnrefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnrefrescar.FlatAppearance.BorderSize = 0;
+            this.btnrefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnrefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrefrescar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrefrescar.ForeColor = System.Drawing.Color.White;
+            this.btnrefrescar.Image = ((System.Drawing.Image)(resources.GetObject("btnrefrescar.Image")));
+            this.btnrefrescar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnrefrescar.Location = new System.Drawing.Point(876, 90);
+            this.btnrefrescar.Name = "btnrefrescar";
+            this.btnrefrescar.Size = new System.Drawing.Size(174, 45);
+            this.btnrefrescar.TabIndex = 62;
+            this.btnrefrescar.Text = "Refrescar";
+            this.btnrefrescar.UseVisualStyleBackColor = true;
             // 
             // Tipos_Entidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(984, 532);
-            this.Controls.Add(this.panelPrincipal);
+            this.ClientSize = new System.Drawing.Size(1023, 532);
+            this.Controls.Add(this.panel);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Tipos_Entidades";
@@ -375,10 +373,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.panelPrincipal.ResumeLayout(false);
-            this.panelPrincipal.PerformLayout();
+            this.panel2.PerformLayout();
+            this.panel.ResumeLayout(false);
+            this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvTiposEntidades)).EndInit();
             this.ResumeLayout(false);
 
@@ -389,9 +386,7 @@
         private System.Windows.Forms.PictureBox Minimizar;
         private System.Windows.Forms.PictureBox Cerrar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox btnMinimizar;
-        private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Panel panelPrincipal;
+        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.CheckBox chkNoElim;
         private System.Windows.Forms.Label label4;
@@ -402,13 +397,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView grvTiposEntidades;
-        private System.Windows.Forms.Button btnrefrescar;
-        private System.Windows.Forms.Button btnadd;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnupdate;
-        private System.Windows.Forms.Button btndelete;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbGrEnt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnupdate;
+        private System.Windows.Forms.Button btndelete;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Button btnrefrescar;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
