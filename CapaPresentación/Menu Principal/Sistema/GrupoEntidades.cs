@@ -151,7 +151,7 @@ namespace CapaPresentación.Menu_Principal.Sistema
             btnupdate.Enabled = false;
         }
 
-        private void grvGruposEntidades_CellCongentClick(object sender, DataGridViewCellEventArgs e)
+        private void grvGruposEntidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             id = Convert.ToInt32(grvGruposEntidades.CurrentRow.Cells[0].ToString());
             txtID.Text = grvGruposEntidades.CurrentRow.Cells[0].ToString();

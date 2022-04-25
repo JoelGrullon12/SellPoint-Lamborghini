@@ -70,32 +70,32 @@ namespace CapaPresentación
         public void grupoEntidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GrupoEntidades grpenti = new GrupoEntidades();
-            grpenti.TopMost = true;
-            grpenti.MdiParent = this;
+            //grpenti.TopMost = true;
+            //grpenti.MdiParent = this;
             grpenti.Show();
         }
 
         private void tipoEntidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Tipos_Entidades tipo = new Tipos_Entidades();
-            tipo.TopMost = true;
-            tipo.MdiParent = this;
+            //tipo.TopMost = true;
+            //tipo.MdiParent = this;
             tipo.Show();
         }
 
         private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Entidades enti = new Entidades();
-            enti.TopMost = true;
-            enti.MdiParent = this;
+            //enti.TopMost = true;
+            //enti.MdiParent = this;
             enti.Show();
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AcercaDe acer = new AcercaDe();
-            acer.TopMost = true;
-            acer.MdiParent = this;
+            //acer.TopMost = true;
+            //acer.MdiParent = this;
             acer.Show();
             
         }

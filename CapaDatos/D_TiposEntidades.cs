@@ -29,12 +29,12 @@ namespace CapaDatos
 
             try
             {
-                cn.Open();
+                cn=con.Open();
                 cmd = new SqlCommand("TpEntidadesListar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
-                cn.Close();
+                cn=con.Close();
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -62,7 +62,7 @@ namespace CapaDatos
 
             try
             {
-                cn.Open();
+                cn = con.Open();
                 cmd = new SqlCommand("TpEntidadesInsertar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -75,7 +75,7 @@ namespace CapaDatos
                 //Fin de los parametros ;-;
 
                 cmd.ExecuteNonQuery();
-                cn.Close();
+                cn=con.Close();
 
                 return 1;
             }
@@ -101,7 +101,7 @@ namespace CapaDatos
 
             try
             {
-                cn.Open();
+                cn=con.Open();
                 cmd = new SqlCommand("TpEntidadesActualizar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -115,7 +115,7 @@ namespace CapaDatos
                 //Fin de los parametros ;-;
 
                 rows = cmd.ExecuteNonQuery();
-                cn.Close();
+                cn=con.Close();
 
                 return 1;
             }
@@ -141,7 +141,7 @@ namespace CapaDatos
 
             try
             {
-                cn.Open();
+                cn=con.Open();
                 cmd = new SqlCommand("TpEntidadesEliminar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -150,7 +150,7 @@ namespace CapaDatos
                 //Fin de los parametros ;-;
 
                 rows = cmd.ExecuteNonQuery();
-                cn.Close();
+                cn=con.Close();
 
                 return 1;
             }
@@ -176,7 +176,7 @@ namespace CapaDatos
 
             try
             {
-                cn.Open();
+                cn=con.Open();
                 cmd = new SqlCommand("TpEntidadesBuscar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -186,7 +186,7 @@ namespace CapaDatos
 
                 da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
-                cn.Close();
+                cn=con.Close();
                 dt = new DataTable();
                 da.Fill(dt);
             }

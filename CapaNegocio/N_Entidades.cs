@@ -23,6 +23,20 @@ namespace CapaNegocio
             return dent.Listar();
         }
 
+        private string[] SetUrls(string urlPag, string urlFB, string urlIG, string urlTW, string urlTK)
+        {
+            string[] urls = new string[5];
+
+            urls[0] = urlPag == "Url Pagina Web" ? "" : urlPag;
+            urls[1] = urlFB == "Url Facebook" ? "" : urlFB;
+            urls[2] = urlIG == "Url Instagram" ? "" : urlIG;
+            urls[3] = urlTW == "Url Twitter" ? "" : urlTW;
+            urls[4] = urlTK == "Url TikTok" ? "" : urlTK;
+
+            return urls;
+
+        }
+
         public int Insert(string desc, string direccion, string local, string typeEnt,
             string typeDoc, int numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
             string urlTK, int idGrEnt, int idTypeEnt, float limCr, string user, string pass, string rol,
@@ -30,9 +44,11 @@ namespace CapaNegocio
         {
             int intNoElim = noElim ? 1 : 0;
 
+            string[] urls = SetUrls(urlPag, urlFB, urlIG, urlTW, urlTK);
+
             msg = dent.msg;
-            return dent.Insert(desc, direccion, local, typeEnt, typeDoc, numDoc, tel, urlPag, urlFB,
-                urlIG, urlTW, urlTK, idGrEnt, idTypeEnt, limCr, user, pass, rol, comment, status, intNoElim);
+            return dent.Insert(desc, direccion, local, typeEnt, typeDoc, numDoc, tel, urls[0], urls[1],
+                urls[2], urls[3], urls[4], idGrEnt, idTypeEnt, limCr, user, pass, rol, comment, status, intNoElim);
         }
 
         public int Update(int id, string desc, string direccion, string local, string typeEnt,
@@ -40,10 +56,11 @@ namespace CapaNegocio
            string urlTK, int idGrEnt, int idTypeEnt, float limCr, string user, string pass, string rol,
            string comment, string status, int noElim)
         {
+            string[] urls = SetUrls(urlPag, urlFB, urlIG, urlTW, urlTK);
             msg = dent.msg;
             return dent.Update(id, desc, direccion, local, typeEnt,
-            typeDoc, numDoc, tel, urlPag, urlFB, urlIG, urlTW,
-            urlTK, idGrEnt, idTypeEnt, limCr, user, pass, rol,
+            typeDoc, numDoc, tel, urls[0], urls[1], urls[2], urls[3], 
+            urls[4], idGrEnt, idTypeEnt, limCr, user, pass, rol,
             comment, status, noElim);
         }
 
