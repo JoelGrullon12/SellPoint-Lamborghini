@@ -14,49 +14,98 @@ namespace CapaNegocio
         D_TiposEntidades dtent = new D_TiposEntidades();
         D_GruposEntidades dgent = new D_GruposEntidades();
 
+        DataTable dt;
+
         public string msg;
         public int rows = 0;
 
         public DataTable Listar()
         {
+            dt = dent.Listar();
             msg = dent.msg;
-            return dent.Listar();
+            return dt;
+        }
+
+        private string[] SetUrls(string urlPag, string urlFB, string urlIG, string urlTW, string urlTK)
+        {
+            string[] urls = new string[5];
+
+            urls[0] = urlPag == "Url Pagina Web" ? "" : urlPag;
+            urls[1] = urlFB == "Url Facebook" ? "" : urlFB;
+            urls[2] = urlIG == "Url Instagram" ? "" : urlIG;
+            urls[3] = urlTW == "Url Twitter" ? "" : urlTW;
+            urls[4] = urlTK == "Url TikTok" ? "" : urlTK;
+
+            return urls;
+        }
+
+        private bool IsLessThanZero(float credito)
+        {
+            return credito < 0;
         }
 
         public int Insert(string desc, string direccion, string local, string typeEnt,
-            string typeDoc, int numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
+            string typeDoc, string numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
             string urlTK, int idGrEnt, int idTypeEnt, float limCr, string user, string pass, string rol,
             string comment, string status, bool noElim)
         {
-            int intNoElim = noElim ? 1 : 0;
+            if (IsLessThanZero(limCr))
+            {
+                return 2;
+            }
+            else
+            {
+                int intNoElim = noElim ? 1 : 0;
 
-            msg = dent.msg;
-            return dent.Insert(desc, direccion, local, typeEnt, typeDoc, numDoc, tel, urlPag, urlFB,
-                urlIG, urlTW, urlTK, idGrEnt, idTypeEnt, limCr, user, pass, rol, comment, status, intNoElim);
+                string[] urls = SetUrls(urlPag, urlFB, urlIG, urlTW, urlTK);
+                long longNumDoc = Convert.ToInt64(numDoc.Replace("-", ""));
+
+                int res = dent.Insert(desc, direccion, local, typeEnt, typeDoc, longNumDoc, tel, urls[0], urls[1],
+                    urls[2], urls[3], urls[4], idGrEnt, idTypeEnt, limCr, user, pass, rol, comment, status, intNoElim);
+                msg = dent.msg;
+
+                return res;
+            }
         }
 
         public int Update(int id, string desc, string direccion, string local, string typeEnt,
-           string typeDoc, int numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
+           string typeDoc, string numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
            string urlTK, int idGrEnt, int idTypeEnt, float limCr, string user, string pass, string rol,
            string comment, string status, int noElim)
         {
-            msg = dent.msg;
-            return dent.Update(id, desc, direccion, local, typeEnt,
-            typeDoc, numDoc, tel, urlPag, urlFB, urlIG, urlTW,
-            urlTK, idGrEnt, idTypeEnt, limCr, user, pass, rol,
-            comment, status, noElim);
+            if (IsLessThanZero(limCr))
+            {
+                return 2;
+            }
+            else
+            {
+                string[] urls = SetUrls(urlPag, urlFB, urlIG, urlTW, urlTK);
+
+                long longNumDoc = Convert.ToInt64(numDoc.Replace("-", ""));
+
+                int res = dent.Update(id, desc, direccion, local, typeEnt,
+                typeDoc, longNumDoc, tel, urls[0], urls[1], urls[2], urls[3],
+                urls[4], idGrEnt, idTypeEnt, limCr, user, pass, rol,
+                comment, status, noElim);
+                msg = dent.msg;
+
+                return res;
+            }
         }
 
         public int Delete(int id)
         {
+            int res = dent.Delete(id);
             msg = dent.msg;
-            return dent.Delete(id);
+
+            return res;
         }
 
         public DataTable Buscar(string param)
         {
+            dt = dent.Buscar(param);
             msg = dent.msg;
-            return dent.Buscar(param);
+            return dt;
         }
 
         public string[] CargarTpEntidad(){

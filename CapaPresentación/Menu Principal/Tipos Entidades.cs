@@ -22,8 +22,8 @@ namespace Proyecto_FinalP2.Menu_Principal
         {
             InitializeComponent();
 
-            //CargarDatos();
-            //CargarComboBoxes();
+            CargarDatos();
+            CargarComboBoxes();
         }
 
         private void CargarDatos(){
@@ -31,11 +31,14 @@ namespace Proyecto_FinalP2.Menu_Principal
         }
 
         private void CargarComboBoxes(){
+            cmbGrEnt.Items.Clear();
+
             string[] grEnt=ntent.CargarGrEntidad();
 
             for (int i = 0; i < grEnt.Length; i++)
             {
                 cmbGrEnt.Items.Add(grEnt[i]);
+                cmbGrEnt.SelectedIndex = 0;
             }
         }
 
@@ -88,25 +91,46 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string desc = txtComment.Text;
+            string desc = txtDesc.Text;
             int grEnt = Convert.ToInt32(cmbGrEnt.Text);
-            string comment = txtID.Text;
+            string comment = txtComment.Text;
             string status = cmbStatus.Text;
             bool noElim = chkNoElim.Checked;
 
-            if(desc==""){
+            if (desc==""){
                 MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
                     "\nDescripcion","Debe rellenar todos los campos requeridos");
             }else{
-                ntent.Insert(desc, grEnt, comment, status, noElim);
+                int result=ntent.Insert(desc, grEnt, comment, status, noElim);
+
+                switch (result)
+                {
+                    case 1:
+                        LimpiarCampos();
+                        CargarDatos();
+                        CargarComboBoxes();
+                        MessageBox.Show("Datos agregados con exito en la base de datos",
+                    "Operacion exitosa");
+                        break;
+
+                    case 3:
+                        MessageBox.Show("Se ha detectado un error referente a la conexion con SQL:\n" + ntent.msg,
+                    "Error de SQL");
+                        break;
+
+                    case 4:
+                        MessageBox.Show("Se ha detectado un error inesperado:\n" + ntent.msg,
+                    "Error");
+                        break;
+                }
             }
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            string desc = txtComment.Text;
+            string desc = txtDesc.Text;
             int grEnt = Convert.ToInt32(cmbGrEnt.Text);
-            string comment = txtID.Text;
+            string comment = txtComment.Text;
             string status = cmbStatus.Text;
             bool noElim = chkNoElim.Checked;
 
@@ -114,30 +138,64 @@ namespace Proyecto_FinalP2.Menu_Principal
                 MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
                     "\nDescripcion","Debe rellenar todos los campos requeridos");
             }else{
-                ntent.Update(id, desc, grEnt, comment, status, noElim);
+                int result =ntent.Update(id, desc, grEnt, comment, status, noElim);
+
+                switch (result)
+                {
+                    case 1:
+                        LimpiarCampos();
+                        CargarDatos();
+                        CargarComboBoxes();
+                        MessageBox.Show("Datos actualizados con exito en la base de datos",
+                    "Operacion exitosa");
+                        break;
+
+                    case 3:
+                        MessageBox.Show("Se ha detectado un error referente a la conexion con SQL:\n" + ntent.msg,
+                    "Error de SQL");
+                        break;
+
+                    case 4:
+                        MessageBox.Show("Se ha detectado un error inesperado:\n" + ntent.msg,
+                    "Error");
+                        break;
+                }
             }
         }
 
         private void btndelete_Click(object sender, EventArgs e)
         {
-            int res=ntent.Delete(id);
-            if(res==1){
-                MessageBox.Show("Registro eliminado con exito\n"+ntent.rows.ToString()+" afectadas", "Registros eliminados");
-                LimpiarCampos();
-            }else if(res==3){
-                MessageBox.Show("Se ha producido un error en la base de datos\n"+ntent.msg, "Error de SLQ detectado");
-            }else if(res==4){
-                MessageBox.Show("Se ha producido un error inesperado\n"+ntent.msg, "Error inesperado detectado");
+            int result=ntent.Delete(id);
+            switch (result)
+            {
+                case 1:
+                    LimpiarCampos();
+                    CargarDatos();
+                    CargarComboBoxes();
+                    MessageBox.Show("Datos eliminados con exito en la base de datos",
+                "Operacion exitosa");
+                    break;
+
+                case 3:
+                    MessageBox.Show("Se ha detectado un error referente a la conexion con SQL:\n" + ntent.msg,
+                "Error de SQL");
+                    break;
+
+                case 4:
+                    MessageBox.Show("Se ha detectado un error inesperado:\n" + ntent.msg,
+                "Error");
+                    break;
             }
         }
 
         private void LimpiarCampos()
         {
-            txtID.Text = "000";
+            txtID.Text = "0";
             txtComment.Text = "";
             txtDesc.Text = "";
             cmbGrEnt.SelectedIndex = 0;
             cmbStatus.SelectedIndex = 0;
+            chkNoElim.Checked = false;
 
             btnadd.Enabled = true;
             btndelete.Enabled = false;
@@ -160,22 +218,27 @@ namespace Proyecto_FinalP2.Menu_Principal
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            id=Convert.ToInt32(grvTiposEntidades.CurrentRow.Cells[0].ToString());
-            txtID.Text=grvTiposEntidades.CurrentRow.Cells[0].ToString();
-            txtDesc.Text=grvTiposEntidades.CurrentRow.Cells[1].ToString();
-            cmbGrEnt.Text=grvTiposEntidades.CurrentRow.Cells[2].ToString();
-            txtComment.Text=grvTiposEntidades.CurrentRow.Cells[3].ToString();
-            cmbStatus.Text=grvTiposEntidades.CurrentRow.Cells[4].ToString();
-            chkNoElim.Checked = grvTiposEntidades.CurrentRow.Cells[5].ToString() == "1" ? true : false;
-
-             btnadd.Enabled=false;
-             btnupdate.Enabled=true;
-             btndelete.Enabled=true;
+            
         }
 
         private void btnrefrescar_Click(object sender, EventArgs e)
         {
             grvTiposEntidades.DataSource = ntent.Listar();
+        }
+
+        private void grvTiposEntidades_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id = Convert.ToInt32(grvTiposEntidades.CurrentRow.Cells[0].Value.ToString());
+            txtID.Text = grvTiposEntidades.CurrentRow.Cells[0].Value.ToString();
+            txtDesc.Text = grvTiposEntidades.CurrentRow.Cells[1].Value.ToString();
+            cmbGrEnt.Text = grvTiposEntidades.CurrentRow.Cells[2].Value.ToString();
+            txtComment.Text = grvTiposEntidades.CurrentRow.Cells[3].Value.ToString();
+            cmbStatus.Text = grvTiposEntidades.CurrentRow.Cells[4].Value.ToString();
+            chkNoElim.Checked = Convert.ToBoolean(grvTiposEntidades.CurrentRow.Cells[5].Value.ToString());
+
+            btnadd.Enabled = false;
+            btnupdate.Enabled = true;
+            btndelete.Enabled = true;
         }
     }
 }

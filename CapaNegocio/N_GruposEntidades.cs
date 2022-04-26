@@ -12,40 +12,46 @@ namespace CapaNegocio
     {
         D_GruposEntidades dgent = new D_GruposEntidades();
 
+        DataTable dt;
+
         public string msg;
         public int rows = 0;
 
         public DataTable Listar()
         {
+            dt = dgent.Listar();
             msg = dgent.msg;
-            return dgent.Listar();
+            return dt;
         }
 
         public int Insert(string desc, string comment, string status, bool noElim)
         {
             int intNoElim = noElim ? 1 : 0;
-
+            int res = dgent.Insert(desc, comment, status, intNoElim);
             msg = dgent.msg;
-            return dgent.Insert(desc, comment, status, intNoElim);
+            return res;
         }
 
         public int Update(int id, string desc, string comment, string status, bool noElim)
         {
             int intNoElim = noElim ? 1 : 0;
+            int res = dgent.Update(id, desc, comment, status, intNoElim);
             msg = dgent.msg;
-            return dgent.Update(id, desc, comment, status, intNoElim);
+            return res;
         }
 
         public int Delete(int id)
         {
+            int res= dgent.Delete(id);
             msg = dgent.msg;
-            return dgent.Delete(id);
+            return res;
         }
 
         public DataTable Buscar(string param)
         {
+            dt= dgent.Buscar(param);
             msg = dgent.msg;
-            return dgent.Buscar(param);
+            return dt;
         }
     }
 }

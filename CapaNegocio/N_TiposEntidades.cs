@@ -13,40 +13,46 @@ namespace CapaNegocio
         D_TiposEntidades dtent = new D_TiposEntidades();
         D_GruposEntidades dgent = new D_GruposEntidades();
 
+        DataTable dt;
+
         public string msg;
         public int rows = 0;
 
         public DataTable Listar()
         {
+            dt= dtent.Listar();
             msg = dtent.msg;
-            return dtent.Listar();
+            return dt;
         }
 
         public int Insert(string desc, int idGrEnt, string comment, string status, bool noElim)
         {
             int intNoElim = noElim ? 1 : 0;
-
+            int res= dtent.Insert(desc, idGrEnt, comment, status, intNoElim);
             msg = dtent.msg;
-            return dtent.Insert(desc, idGrEnt, comment, status, intNoElim);
+            return res;
         }
 
         public int Update(int id, string desc, int idGrEnt, string comment, string status, bool noElim)
         {
             int intNoElim=noElim? 1 : 0;
+            int res= dtent.Update(id, desc, idGrEnt, comment, status, intNoElim);
             msg = dtent.msg;
-            return dtent.Update(id, desc, idGrEnt, comment, status, intNoElim);
+            return res;
         }
 
         public int Delete(int id)
         {
+            int res= dtent.Delete(id);
             msg = dtent.msg;
-            return dtent.Delete(id);
+            return res;
         }
 
         public DataTable Buscar(string param)
         {
+            dt= dtent.Buscar(param);
             msg = dtent.msg;
-            return dtent.Buscar(param);
+            return dt;
         }
 
         public string[] CargarGrEntidad(){
