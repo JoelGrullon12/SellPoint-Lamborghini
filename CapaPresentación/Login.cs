@@ -25,19 +25,17 @@ namespace CapaPresentación
 
         public Login()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(5000);
-            InitializeComponent();
-            t.Abort();
 
+            InitializeComponent();
+ 
         }
 
+/*
         public void StartForm()
         {
             Application.Run(new SplashScreen());
         }
-
+*/
         private void MainScreen_Load(object sender, EventArgs e)
         {
 
@@ -110,8 +108,7 @@ namespace CapaPresentación
 
         private void btnCerrar_MouseHover(object sender, EventArgs e)
         {
-            Color color = Color.FromArgb(60, Color.White);
-            btnCerrar.BackColor = color;
+            btnCerrar.BackColor = Color.Red;
         }
 
         private void btnCerrar_MouseLeave(object sender, EventArgs e)
