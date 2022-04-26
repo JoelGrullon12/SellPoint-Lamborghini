@@ -81,5 +81,10 @@ namespace Proyecto_FinalP2.Menu_Principal.Sistema
         {
 
         }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            this.BringToFront();
+        }
     }
 }

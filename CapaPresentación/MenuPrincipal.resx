@@ -228,7 +228,7 @@
         xUAa4EouKCoB0n+A2CgltTiZgYHRAMjOLi8pAIozzgGyRZKywewNIHZRSJAzkH0EyOZLh7CvgNhJEPYT
         ELsI6Akg+wtIfTqYzcQBNgfClgGxS1IrQPYyOOcXVBZlpmeUKBhaWloqOKbkJ6UqBFcWl6TmFit45iXn
         FxXkFyWWpKYA1ULcBwaCEIWgENMAarTQZKAyAMUDhPU5EBy+jGJnEGIIkFxaVAZlMjIZE+YjzJgjwcDg
-        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAA69AAAOvQFH+5Ct
+        v5SBgeUPQsykl4FhgQ4DA/9UhJiaIQODgD4Dw745AMDGT/0ZOjZcAAAACXBIWXMAAA68AAAOvAGVvHJJ
         AAAQ3ElEQVRYR8WXeVjTV7rH36rTPqhVUVusWq0ouGNdcF/YRTbFoKwJhC0sBoHIqqyCLAqWsoiKaGvr
         XsdW22k7dXp9xt7eOzO3HTfWQBYSErIHCUZAzn1PAEVKb+vcP+aPz3Pe867fc36/X3gAIOSVeV1rhBmX
         H8Hkr+rB7KwIJlxpgAk37ltOvP6QM+HzB5eQO8i18Z/fj0P/YrNb98Hsy3/C5KtCmHGhAd5QGkbt+5uM
@@ -1352,6 +1352,6 @@
     <value>459, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>62</value>
+    <value>25</value>
   </metadata>
 </root>

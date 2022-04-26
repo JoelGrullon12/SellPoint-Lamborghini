@@ -42,16 +42,19 @@ namespace CapaPresentación
 
         private void GrupoEntidades(Object Form)
         {
-            if (this.panelPr.Controls.Count > 4)
+            if (this.panelPr.Controls.Count > 5)
                 this.panelPr.Controls.RemoveAt(0);
 
             Form Ven = Form as Form;
-            Ven.TopLevel = false;
+            
+            Ven.TopMost = true;
             Ven.Dock = DockStyle.Fill;
             Ven.MdiParent = this;
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
+            statusStrip1.Visible = true;
             Ven.Show();
+            Ven.BringToFront();
         }
         
        
@@ -59,21 +62,22 @@ namespace CapaPresentación
 
         private void TipoEntidades(Object Form)
         {
-            if (this.panelPr.Controls.Count > 4)
+            if (this.panelPr.Controls.Count > 5)
                 this.panelPr.Controls.RemoveAt(0);
 
             Form Ven = Form as Form;
-            Ven.TopLevel = false;
+            Ven.TopMost = true;
             Ven.Dock = DockStyle.Fill;
             Ven.MdiParent = this;
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
             Ven.Show();
+            Ven.BringToFront();
         }
 
         private void Entidades(Object Form)
         {
-            if (this.panelPr.Controls.Count > 4)
+            if (this.panelPr.Controls.Count > 5)
                 this.panelPr.Controls.RemoveAt(0);
 
             Form Ven = Form as Form;
@@ -83,6 +87,7 @@ namespace CapaPresentación
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
             Ven.Show();
+            Ven.BringToFront();
         }
         private void AcercaDe(Object Form)
         {
@@ -96,6 +101,7 @@ namespace CapaPresentación
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
             Ven.Show();
+            Ven.BringToFront();
         }
 
         private void MenuPrincipal_MouseMove(object sender, MouseEventArgs e)

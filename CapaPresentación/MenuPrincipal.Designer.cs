@@ -116,7 +116,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F11)));
+            this.entidadesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F12)));
             this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
@@ -228,7 +228,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(70, 755);
+            this.panel3.Size = new System.Drawing.Size(85, 755);
             this.panel3.TabIndex = 2;
             // 
             // label1

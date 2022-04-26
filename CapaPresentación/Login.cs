@@ -158,8 +158,10 @@ namespace CapaPresentación
             usuario = txtuser.Text;
             string pass = txtpass.Text;
 
+            N_Login login = new N_Login();
             MenuPrincipal main = new MenuPrincipal(usuario);
-            int acc = N_Login.Login(usuario, pass);
+            int acc = login.Login(usuario, pass);
+
 
             if (acc == 1)
             {

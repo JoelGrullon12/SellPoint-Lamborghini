@@ -232,5 +232,10 @@ namespace CapaPresentación.Menu_Principal.Sistema
             btnupdate.Enabled = true;
             btndelete.Enabled = true;
         }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            this.BringToFront();
+        }
     }
 }

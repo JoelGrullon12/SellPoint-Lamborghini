@@ -67,6 +67,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 25);
             this.panel2.TabIndex = 8;
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             // 
             // label8
