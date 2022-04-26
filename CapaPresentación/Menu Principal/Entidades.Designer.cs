@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entidades));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Minimizar = new System.Windows.Forms.PictureBox();
@@ -65,8 +65,8 @@
             this.boxStatus = new System.Windows.Forms.ComboBox();
             this.grvEntidades = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numDoc = new System.Windows.Forms.MaskedTextBox();
             this.numCred = new System.Windows.Forms.NumericUpDown();
-            this.numDoc = new System.Windows.Forms.NumericUpDown();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -96,7 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvEntidades)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCred)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -491,39 +490,39 @@
             this.grvEntidades.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.grvEntidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grvEntidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grvEntidades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grvEntidades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.grvEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grvEntidades.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grvEntidades.DefaultCellStyle = dataGridViewCellStyle6;
             this.grvEntidades.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.grvEntidades.EnableHeadersVisualStyles = false;
             this.grvEntidades.GridColor = System.Drawing.Color.Black;
             this.grvEntidades.Location = new System.Drawing.Point(60, 434);
             this.grvEntidades.Name = "grvEntidades";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grvEntidades.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.grvEntidades.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grvEntidades.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.grvEntidades.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.grvEntidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvEntidades.Size = new System.Drawing.Size(857, 195);
             this.grvEntidades.TabIndex = 72;
@@ -532,8 +531,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.numCred);
             this.groupBox2.Controls.Add(this.numDoc);
+            this.groupBox2.Controls.Add(this.numCred);
             this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label17);
@@ -554,29 +553,32 @@
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
             // 
+            // numDoc
+            // 
+            this.numDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numDoc.Location = new System.Drawing.Point(187, 18);
+            this.numDoc.Mask = "999-9999999-9";
+            this.numDoc.Name = "numDoc";
+            this.numDoc.Size = new System.Drawing.Size(124, 21);
+            this.numDoc.TabIndex = 71;
+            this.numDoc.Enter += new System.EventHandler(this.numDoc_Enter);
+            // 
             // numCred
             // 
             this.numCred.Location = new System.Drawing.Point(442, 17);
             this.numCred.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
+            2147483647,
+            0,
             0,
             0});
+            this.numCred.Minimum = new decimal(new int[] {
+            247483648,
+            0,
+            0,
+            -2147483648});
             this.numCred.Name = "numCred";
             this.numCred.Size = new System.Drawing.Size(120, 20);
             this.numCred.TabIndex = 3;
-            // 
-            // numDoc
-            // 
-            this.numDoc.Location = new System.Drawing.Point(205, 18);
-            this.numDoc.Maximum = new decimal(new int[] {
-            1215752192,
-            23,
-            0,
-            0});
-            this.numDoc.Name = "numDoc";
-            this.numDoc.Size = new System.Drawing.Size(120, 20);
-            this.numDoc.TabIndex = 2;
             // 
             // txtID
             // 
@@ -630,6 +632,7 @@
             this.cmbTpDoc.Size = new System.Drawing.Size(101, 21);
             this.cmbTpDoc.TabIndex = 5;
             this.cmbTpDoc.Text = "RNC";
+            this.cmbTpDoc.SelectedIndexChanged += new System.EventHandler(this.cmbTpDoc_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -683,7 +686,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(128, 20);
             this.label13.TabIndex = 57;
-            this.label13.Text = "Num Documento:";
+            this.label13.Text = "N. Documento:";
             // 
             // label16
             // 
@@ -804,7 +807,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCred)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -857,12 +859,12 @@
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numCred;
-        private System.Windows.Forms.NumericUpDown numDoc;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.MaskedTextBox numDoc;
     }
 }

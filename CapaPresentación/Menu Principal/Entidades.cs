@@ -104,7 +104,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             string local = txtLocal.Text;
             string tpEnttxt = cmbTpEnt.Text;
             string tpDoc = cmbTpDoc.Text;
-            int numeroDoc = (int)numDoc.Value;
+            string numeroDoc = numDoc.Text;
             string tel = txtTel.Text;
             string urlWeb = txtWeb.Text;
             string urlFB = txtFB.Text;
@@ -121,7 +121,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             string status = boxStatus.Text;
             bool noElim = NoEliminable.Checked;
 
-            if (desc == "" || dir == "" || local == "" || numeroDoc == 0
+            if (desc == "" || dir == "" || local == "" || numeroDoc == ""
                 || tel == "" || usu == "" || pass == "")
             {
                 MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
@@ -141,6 +141,11 @@ namespace Proyecto_FinalP2.Menu_Principal
                         CargarComboBoxes();
                         MessageBox.Show("Datos insertados con exito en la base de datos",
                     "Operacion exitosa");
+                        break;
+
+                    case 2:
+                        MessageBox.Show("El limite de credito no puede ser menor a cero,\ncualquier monto registrado debe ser mayor a cero",
+                    "Valor no soportado");
                         break;
 
                     case 3:
@@ -177,7 +182,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             string local = txtLocal.Text;
             string tpEnttxt = cmbTpEnt.Text;
             string tpDoc = cmbTpDoc.Text;
-            int numeroDoc = (int)numDoc.Value;
+            string numeroDoc = numDoc.Text;
             string tel = txtTel.Text;
             string urlWeb = txtWeb.Text;
             string urlFB = txtFB.Text;
@@ -186,7 +191,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             string urlTK = txtTK.Text;
             int grEnt = Convert.ToInt32(cmbIdGrEnt.Text);
             int tpEnt = Convert.ToInt32(cmbIdTpEnt.Text);
-            int limCred = (int)numCred.Value;
+            int limCred = Convert.ToInt32(numCred.Value);
             string usu = txtUser.Text;
             string pass = txtPass.Text;
             string rol = cmbRol.Text;
@@ -194,7 +199,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             string status = boxStatus.Text;
             bool noElim = NoEliminable.Checked;
 
-            if (desc == "" || dir == "" || local == "" || numeroDoc == 0
+            if (desc == "" || dir == "" || local == "" || numeroDoc == ""
                 || tel == "" || usu == "" || pass == "")
             {
                 MessageBox.Show("Todos los campos terminados en asterisco (*) son requeridos\ndebe rellenar al menos los siguientes campos:" +
@@ -203,8 +208,8 @@ namespace Proyecto_FinalP2.Menu_Principal
             }
             else
             {
-                int intNoElim=noElim? 1 : 0;
-                int result=nent.Update(id, desc, dir, local, tpEnttxt, tpDoc, numeroDoc, tel, urlWeb, urlFB, urlIG, urlTW,
+                int intNoElim = noElim ? 1 : 0;
+                int result = nent.Update(id, desc, dir, local, tpEnttxt, tpDoc, numeroDoc, tel, urlWeb, urlFB, urlIG, urlTW,
                 urlTK, grEnt, tpEnt, limCred, usu, pass, rol, comment, status, intNoElim);
 
                 switch (result)
@@ -215,6 +220,11 @@ namespace Proyecto_FinalP2.Menu_Principal
                         CargarComboBoxes();
                         MessageBox.Show("Datos actualizados con exito en la base de datos",
                     "Operacion exitosa");
+                        break;
+
+                    case 2:
+                        MessageBox.Show("El limite de credito no puede ser menor a cero,\ncualquier monto registrado debe ser mayor a cero",
+                    "Valor no soportado");
                         break;
 
                     case 3:
@@ -228,6 +238,8 @@ namespace Proyecto_FinalP2.Menu_Principal
                         break;
                 }
             }
+
+            //MessageBox.Show(limCred.ToString());
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -264,6 +276,21 @@ namespace Proyecto_FinalP2.Menu_Principal
         {
             if (grvEntidades.CurrentRow.Index != grvEntidades.Rows.Count - 1)
             {
+                switch (grvEntidades.CurrentRow.Cells[5].Value.ToString())
+                {
+                    case "RNC":
+                        numDoc.Mask = "999-99999-9";
+                        break;
+
+                    case "Cédula":
+                        numDoc.Mask = "999-9999999-9";
+                        break;
+
+                    case "Pasaporte":
+                        numDoc.Mask = "999999999";
+                        break;
+                }
+
                 id = Convert.ToInt32(grvEntidades.CurrentRow.Cells[0].Value.ToString());
                 txtID.Text = grvEntidades.CurrentRow.Cells[0].Value.ToString();
                 txtDesc.Text = grvEntidades.CurrentRow.Cells[1].Value.ToString();
@@ -271,7 +298,7 @@ namespace Proyecto_FinalP2.Menu_Principal
                 txtLocal.Text = grvEntidades.CurrentRow.Cells[3].Value.ToString();
                 cmbTpEnt.Text = grvEntidades.CurrentRow.Cells[4].Value.ToString();
                 cmbTpDoc.Text = grvEntidades.CurrentRow.Cells[5].Value.ToString();
-                numDoc.Value = Convert.ToInt32(grvEntidades.CurrentRow.Cells[6].Value.ToString());
+                numDoc.Text = grvEntidades.CurrentRow.Cells[6].Value.ToString();
                 txtTel.Text = grvEntidades.CurrentRow.Cells[7].Value.ToString();
                 txtWeb.Text = grvEntidades.CurrentRow.Cells[8].Value.ToString();
                 txtFB.Text = grvEntidades.CurrentRow.Cells[9].Value.ToString();
@@ -302,7 +329,7 @@ namespace Proyecto_FinalP2.Menu_Principal
             txtLocal.Text = "";
             cmbTpEnt.SelectedIndex = 0;
             cmbTpDoc.SelectedIndex = 0;
-            numDoc.Value = 0;
+            numDoc.Text = "";
             txtTel.Text = "";
             txtWeb.Text = "Url Pagina Web";
             txtFB.Text = "Url Facebook";
@@ -376,6 +403,42 @@ namespace Proyecto_FinalP2.Menu_Principal
         private void txtTK_Leave(object sender, EventArgs e)
         {
             txtTK.Text = txtTK.Text == "" ? "Url TikTok" : txtTK.Text;
+        }
+
+        private void cmbTpDoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmbTpDoc.SelectedIndex)
+            {
+                case 0:
+                    numDoc.Mask = "999-99999-9";
+                    break;
+
+                case 1:
+                    numDoc.Mask = "999-9999999-9";
+                    break;
+
+                case 2:
+                    numDoc.Mask = "999999999";
+                    break;
+            }
+        }
+
+        private void numDoc_Enter(object sender, EventArgs e)
+        {
+            switch (cmbTpDoc.SelectedIndex)
+            {
+                case 0:
+                    numDoc.Mask = "999-99999-9";
+                    break;
+
+                case 1:
+                    numDoc.Mask = "999-9999999-9";
+                    break;
+
+                case 2:
+                    numDoc.Mask = "999999999";
+                    break;
+            }
         }
     }
 }

@@ -16,9 +16,25 @@ namespace CapaDatos
         SqlCommand cmd;
         DataTable dt;
 
-        public string msg;
+        public string msg = "";
         public int rows = 0;
-        
+
+        /// <summary>
+        /// Metodo que abre la conexion para usarla
+        /// </summary>
+        private void Open()
+        {
+            cn = con.Open();
+        }
+
+        /// <summary>
+        /// Metodo que cierra la conexion previamente abierta
+        /// </summary>
+        private void Close()
+        {
+            cn = con.Close();
+        }
+
         /// <summary>
         /// Metodo que retorna todos los registros de la tabla GruposEntidades
         /// </summary>
@@ -26,17 +42,17 @@ namespace CapaDatos
         /// 
         public DataTable Listar()
         {
-            
+
             dt = new DataTable();
 
             try
             {
-                cn=con.Open();
+                Open();
                 cmd = new SqlCommand("TpEntidadesListar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
-                cn=con.Close();
+                Close();
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -44,16 +60,18 @@ namespace CapaDatos
             {
                 dt.Rows[0][0] = "sqlerr101";
                 dt.Rows[0][1] = sqle.Message;
+                msg = sqle.Message;
             }
             catch (Exception e)
             {
                 dt = new DataTable();
                 dt.Rows[0][0] = "err101";
                 dt.Rows[0][1] = e.Message;
+                msg = e.Message;
             }
             return dt;
         }
-        
+
 
         /// <summary>
         /// Metodo para insertar un registro en la tabla GruposEntidades
@@ -64,7 +82,7 @@ namespace CapaDatos
 
             try
             {
-                cn = con.Open();
+                Open();
                 cmd = new SqlCommand("TpEntidadesInsertar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -77,7 +95,7 @@ namespace CapaDatos
                 //Fin de los parametros ;-;
 
                 cmd.ExecuteNonQuery();
-                cn=con.Close();
+                Close();
 
                 return 1;
             }
@@ -103,7 +121,7 @@ namespace CapaDatos
 
             try
             {
-                cn=con.Open();
+                Open();
                 cmd = new SqlCommand("TpEntidadesActualizar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -117,7 +135,7 @@ namespace CapaDatos
                 //Fin de los parametros ;-;
 
                 rows = cmd.ExecuteNonQuery();
-                cn=con.Close();
+                Close();
 
                 return 1;
             }
@@ -143,7 +161,7 @@ namespace CapaDatos
 
             try
             {
-                cn=con.Open();
+                Open();
                 cmd = new SqlCommand("TpEntidadesEliminar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -152,7 +170,7 @@ namespace CapaDatos
                 //Fin de los parametros ;-;
 
                 rows = cmd.ExecuteNonQuery();
-                cn=con.Close();
+                Close();
 
                 return 1;
             }
@@ -178,7 +196,7 @@ namespace CapaDatos
 
             try
             {
-                cn=con.Open();
+                Open();
                 cmd = new SqlCommand("TpEntidadesBuscar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -188,7 +206,7 @@ namespace CapaDatos
 
                 da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
-                cn=con.Close();
+                Close();
                 dt = new DataTable();
                 da.Fill(dt);
             }
@@ -196,12 +214,13 @@ namespace CapaDatos
             {
                 dt.Rows[0][0] = "sqlerr101";
                 dt.Rows[0][1] = sqle.Message;
+                msg = sqle.Message;
             }
             catch (Exception e)
             {
-                dt = new DataTable();
                 dt.Rows[0][0] = "err101";
                 dt.Rows[0][1] = e.Message;
+                msg = e.Message;
             }
             return dt;
         }

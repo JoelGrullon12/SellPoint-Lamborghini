@@ -128,7 +128,8 @@ namespace CapaPresentación
             string user = txtuser.Text;
             string pass = txtpass.Text;
             MenuPrincipal main = new MenuPrincipal();
-            int acc = N_Login.Login(user, pass);
+            N_Login login = new N_Login();
+            int acc = login.Login(user, pass);
 
             if (acc == 1)
             {
@@ -140,9 +141,9 @@ namespace CapaPresentación
                 Error.Visible = true;
                 Error.Text = "        Usuario y/ o contraseña incorrectos"; 
             }
-            else if (acc == 45)
+            else
             {
-                MessageBox.Show(N_Login.msg, "Error");
+                MessageBox.Show(login.msg, "Error");
 
             }
         }

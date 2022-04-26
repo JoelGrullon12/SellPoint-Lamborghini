@@ -68,7 +68,7 @@ namespace CapaDatos
         /// </summary>
         /// <returns>Un 1 si la insercion fue exitosa, el mensaje de error en caso de error (duh)</returns>
         public int Insert(string desc, string direccion, string local, string typeEnt,
-            string typeDoc, int numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
+            string typeDoc, long numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
             string urlTK, int idGrEnt, int idTypeEnt, float limCr, string user, string pass, string rol,
             string comment, string status, int noElim)
         {
@@ -125,7 +125,7 @@ namespace CapaDatos
         /// </summary>
         /// <returns>El numero de filas modificadas, o un mensaje en caso de error</returns>
         public int Update(int id, string desc, string direccion, string local, string typeEnt,
-            string typeDoc, int numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
+            string typeDoc, long numDoc, string tel, string urlPag, string urlFB, string urlIG, string urlTW,
             string urlTK, int idGrEnt, int idTypeEnt, float limCr, string user, string pass, string rol,
             string comment, string status, int noElim)
         {
