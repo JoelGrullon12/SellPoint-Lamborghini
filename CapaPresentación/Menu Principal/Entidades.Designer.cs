@@ -37,8 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Minimizar = new System.Windows.Forms.PictureBox();
             this.Cerrar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panell = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -65,8 +63,8 @@
             this.boxStatus = new System.Windows.Forms.ComboBox();
             this.grvEntidades = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numDoc = new System.Windows.Forms.MaskedTextBox();
             this.numCred = new System.Windows.Forms.NumericUpDown();
-            this.numDoc = new System.Windows.Forms.NumericUpDown();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -89,14 +87,11 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panell.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvEntidades)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCred)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -105,13 +100,12 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.Minimizar);
             this.panel2.Controls.Add(this.Cerrar);
-            this.panel2.Controls.Add(this.btnMinimizar);
-            this.panel2.Controls.Add(this.btnCerrar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 25);
+            this.panel2.Size = new System.Drawing.Size(987, 25);
             this.panel2.TabIndex = 3;
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             // 
             // label1
@@ -152,28 +146,6 @@
             this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
             this.Cerrar.MouseLeave += new System.EventHandler(this.Cerrar_MouseLeave);
             this.Cerrar.MouseHover += new System.EventHandler(this.Cerrar_MouseHover);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(986, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 5;
-            this.btnMinimizar.TabStop = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(1017, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 5;
-            this.btnCerrar.TabStop = false;
             // 
             // panell
             // 
@@ -532,8 +504,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.numCred);
             this.groupBox2.Controls.Add(this.numDoc);
+            this.groupBox2.Controls.Add(this.numCred);
             this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label17);
@@ -554,29 +526,32 @@
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
             // 
+            // numDoc
+            // 
+            this.numDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numDoc.Location = new System.Drawing.Point(187, 18);
+            this.numDoc.Mask = "999-9999999-9";
+            this.numDoc.Name = "numDoc";
+            this.numDoc.Size = new System.Drawing.Size(124, 21);
+            this.numDoc.TabIndex = 71;
+            this.numDoc.Enter += new System.EventHandler(this.numDoc_Enter);
+            // 
             // numCred
             // 
             this.numCred.Location = new System.Drawing.Point(442, 17);
             this.numCred.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
+            2147483647,
+            0,
             0,
             0});
+            this.numCred.Minimum = new decimal(new int[] {
+            247483648,
+            0,
+            0,
+            -2147483648});
             this.numCred.Name = "numCred";
             this.numCred.Size = new System.Drawing.Size(120, 20);
             this.numCred.TabIndex = 3;
-            // 
-            // numDoc
-            // 
-            this.numDoc.Location = new System.Drawing.Point(205, 18);
-            this.numDoc.Maximum = new decimal(new int[] {
-            1215752192,
-            23,
-            0,
-            0});
-            this.numDoc.Name = "numDoc";
-            this.numDoc.Size = new System.Drawing.Size(120, 20);
-            this.numDoc.TabIndex = 2;
             // 
             // txtID
             // 
@@ -630,6 +605,7 @@
             this.cmbTpDoc.Size = new System.Drawing.Size(101, 21);
             this.cmbTpDoc.TabIndex = 5;
             this.cmbTpDoc.Text = "RNC";
+            this.cmbTpDoc.SelectedIndexChanged += new System.EventHandler(this.cmbTpDoc_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -683,7 +659,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(128, 20);
             this.label13.TabIndex = 57;
-            this.label13.Text = "Num Documento:";
+            this.label13.Text = "N. Documento:";
             // 
             // label16
             // 
@@ -783,7 +759,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(986, 666);
+            this.ClientSize = new System.Drawing.Size(987, 666);
             this.Controls.Add(this.panell);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -794,8 +770,6 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panell.ResumeLayout(false);
             this.panell.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -804,7 +778,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCred)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -812,8 +785,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox btnMinimizar;
-        private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox Minimizar;
         private System.Windows.Forms.PictureBox Cerrar;
         private System.Windows.Forms.Panel panell;
@@ -857,12 +828,12 @@
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numCred;
-        private System.Windows.Forms.NumericUpDown numDoc;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.MaskedTextBox numDoc;
     }
 }

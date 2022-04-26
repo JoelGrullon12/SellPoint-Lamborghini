@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,22 +11,15 @@ namespace CapaNegocio
     public class N_Login
     {
         static D_Login lg = new D_Login();
-        //DataTable dt;
-        public static string msg;
-        public static string err;
+        public string msg;
+        public string err;
 
-        public static int Login(string user, string pass)
+        public int Login(string user, string pass)
         {
             int acc = lg.Log(user, pass);
 
             switch (acc)
-            {
-                case 1:
-                    return 1;
-
-                case 0:
-                    return 0;
-
+            { 
                 case 3:
                     err = "Error al conectarse a la Base de Datos";
                     msg = lg.errMsg;
@@ -37,8 +31,17 @@ namespace CapaNegocio
                     return 4;
 
                 default:
-                    return 45;
+                    return acc;
             }
+        }
+
+        
+        public D_Login objetoCD = new D_Login();
+        public DataTable MostrarUsuario(string user)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.MostrarDatos(user);
+            return tabla;
         }
     }
 }

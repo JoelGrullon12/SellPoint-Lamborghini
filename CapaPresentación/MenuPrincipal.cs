@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Proyecto_FinalP2.Menu_Principal;
 using Proyecto_FinalP2.Menu_Principal.Sistema;
 using CapaPresentación.Menu_Principal.Sistema;
+using CapaNegocio;
+
 
 
 namespace CapaPresentación
@@ -21,11 +23,11 @@ namespace CapaPresentación
         private int xClick;
         private int yClick;
 
-        
 
-        public MenuPrincipal()
+        string usuario;
+        public MenuPrincipal(string usuario)
         {
-           
+            this.usuario = usuario;
             int xer = this.Location.X;
             int yer = this.Location.Y;
             this.Location = new Point(xer,yer);
@@ -40,35 +42,42 @@ namespace CapaPresentación
 
         private void GrupoEntidades(Object Form)
         {
-            if (this.panelPr.Controls.Count > 4)
+            if (this.panelPr.Controls.Count > 5)
                 this.panelPr.Controls.RemoveAt(0);
 
             Form Ven = Form as Form;
-            Ven.TopLevel = false;
+            
+            Ven.TopMost = true;
             Ven.Dock = DockStyle.Fill;
             Ven.MdiParent = this;
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
+            statusStrip1.Visible = true;
             Ven.Show();
+            Ven.BringToFront();
         }
+        
+       
+        
 
         private void TipoEntidades(Object Form)
         {
-            if (this.panelPr.Controls.Count > 4)
+            if (this.panelPr.Controls.Count > 5)
                 this.panelPr.Controls.RemoveAt(0);
 
             Form Ven = Form as Form;
-            Ven.TopLevel = false;
+            Ven.TopMost = true;
             Ven.Dock = DockStyle.Fill;
             Ven.MdiParent = this;
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
             Ven.Show();
+            Ven.BringToFront();
         }
 
         private void Entidades(Object Form)
         {
-            if (this.panelPr.Controls.Count > 4)
+            if (this.panelPr.Controls.Count > 5)
                 this.panelPr.Controls.RemoveAt(0);
 
             Form Ven = Form as Form;
@@ -78,6 +87,7 @@ namespace CapaPresentación
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
             Ven.Show();
+            Ven.BringToFront();
         }
         private void AcercaDe(Object Form)
         {
@@ -91,6 +101,7 @@ namespace CapaPresentación
             this.panelPr.Controls.Add(Ven);
             this.panelPr.Tag = Ven;
             Ven.Show();
+            Ven.BringToFront();
         }
 
         private void MenuPrincipal_MouseMove(object sender, MouseEventArgs e)
@@ -223,12 +234,16 @@ namespace CapaPresentación
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
             
         }
+        Login lg = new Login();
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            Datos.Text = lg.MostrarUsuario(usuario);
+        }
+        
+
+        
+
     }
 }

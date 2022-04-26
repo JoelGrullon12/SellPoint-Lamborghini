@@ -240,5 +240,10 @@ namespace Proyecto_FinalP2.Menu_Principal
             btnupdate.Enabled = true;
             btndelete.Enabled = true;
         }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            this.BringToFront();
+        }
     }
 }
