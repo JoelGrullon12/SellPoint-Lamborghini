@@ -33,6 +33,22 @@ namespace CapaDatos
         /// <param name="user"></param>
         /// <param name="pass"></param>
         /// <returns>Retorna un codigo que indice el acceso al sistema o un codigo de datos errones, retorna un mensaje en caso de error</returns>
+        /// 
+
+        public DataTable MostrarDatos(string idUserNameEntidad)
+        {
+            Open();
+            cmd = new SqlCommand("MostrarDatos", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserNameEntidad", idUserNameEntidad);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            Close();
+            dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
         public int Log(string user, string pass)
         {
             try
@@ -47,7 +63,7 @@ namespace CapaDatos
                 Close();
                 dt = new DataTable();
                 da.Fill(dt);
-
+                
                 if (dt.Rows.Count > 0)
                     return 1;
                 else

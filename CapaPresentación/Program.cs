@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_FinalP2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,8 +8,10 @@ using Proyecto_FinalP2;
 
 namespace CapaPresentación
 {
+    
     internal static class Program
     {
+        public static string usuario;
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -17,7 +20,7 @@ namespace CapaPresentación
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new SplashScreen());
         }
     }
 }

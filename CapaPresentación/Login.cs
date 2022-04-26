@@ -11,27 +11,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 
+
 namespace CapaPresentación
 {
+    
     public partial class Login : Form
     {
         private int xClick;
         private int yClick;
 
+        public static string usuario = string.Empty;
+
+
         public Login()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(5000);
+
             InitializeComponent();
-            t.Abort();
+ 
         }
 
+/*
         public void StartForm()
         {
             Application.Run(new SplashScreen());
         }
-
+*/
         private void MainScreen_Load(object sender, EventArgs e)
         {
 
@@ -75,6 +79,7 @@ namespace CapaPresentación
             }
         }
 
+       
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -84,7 +89,7 @@ namespace CapaPresentación
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        
         private void Login_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -103,8 +108,7 @@ namespace CapaPresentación
 
         private void btnCerrar_MouseHover(object sender, EventArgs e)
         {
-            Color color = Color.FromArgb(60, Color.White);
-            btnCerrar.BackColor = color;
+            btnCerrar.BackColor = Color.Red;
         }
 
         private void btnCerrar_MouseLeave(object sender, EventArgs e)
@@ -123,18 +127,47 @@ namespace CapaPresentación
             btnMinimizar.BackColor = Color.Transparent;
         }
 
+        public string MostrarUsuario(string user)
+        {
+            N_Login objecto = new N_Login();
+            DataTable tb = objecto.MostrarUsuario(user);
+
+            string UserNameEntidad = tb.Rows[0][0].ToString();
+            string Direccion = tb.Rows[0][1].ToString();
+            string Localidad = tb.Rows[0][2].ToString();
+            string Telefonos = tb.Rows[0][3].ToString();
+            string RolUserEntidad = tb.Rows[0][4].ToString();
+
+
+            string fecha = DateTime.Now.ToString("HH:mm:ss");
+
+            string datos  = " Usuario: " + UserNameEntidad
+                 + " | Hora actual: " + fecha + " | Dirección: " + Direccion
+                 + " | Localidad: " + Localidad
+                 + " | Teléfono: " + Telefonos
+                 + " | RolUserEntidad: " + RolUserEntidad;
+            return datos;
+        }
+
+        public string Datos(string datos)
+        {
+            return datos;
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string user = txtuser.Text;
+            usuario = txtuser.Text;
             string pass = txtpass.Text;
-            MenuPrincipal main = new MenuPrincipal();
-            N_Login login = new N_Login();
-            int acc = login.Login(user, pass);
+
+            MenuPrincipal main = new MenuPrincipal(usuario);
+            int acc = N_Login.Login(usuario, pass);
 
             if (acc == 1)
             {
                 main.Show();
                 this.Hide();
+                MostrarUsuario(usuario);
+                
+
             }
             else if (acc == 0)
             {
@@ -148,12 +181,15 @@ namespace CapaPresentación
             }
         }
 
+       
         private void btnLogin_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
 
+        
 
+      
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {
