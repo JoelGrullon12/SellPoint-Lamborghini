@@ -147,7 +147,7 @@ namespace CapaPresentación
             string datos  = " Usuario: " + UserNameEntidad
                  + " | Hora actual: " + fecha + " | Dirección: " + Direccion
                  + " | Localidad: " + Localidad
-                 + " | Telefonos: " + Telefonos
+                 + " | Teléfono: " + Telefonos
                  + " | RolUserEntidad: " + RolUserEntidad;
             return datos;
         }
