@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,15 @@ namespace CapaNegocio
                 default:
                     return 45;
             }
+        }
+
+        
+        public D_Login objetoCD = new D_Login();
+        public DataTable MostrarUsuario(string user)
+        {
+            DataTable tabla = new DataTable();
+            tabla = objetoCD.MostrarDatos(user);
+            return tabla;
         }
     }
 }

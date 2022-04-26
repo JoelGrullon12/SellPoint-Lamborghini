@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_FinalP2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,8 +7,10 @@ using System.Windows.Forms;
 
 namespace CapaPresentación
 {
+    
     internal static class Program
     {
+        public static string usuario;
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>

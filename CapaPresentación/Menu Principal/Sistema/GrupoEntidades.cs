@@ -95,12 +95,15 @@ namespace CapaPresentación.Menu_Principal.Sistema
 
             if (param == "")
             {
+                MessageBox.Show("Por favor digite el id");
                 grvGruposEntidades.DataSource = ngent.Listar();
             }
             else
             {
                 grvGruposEntidades.DataSource = ngent.Buscar(param);
+
             }
+            
         }
 
         private void btnadd_Click(object sender, EventArgs e)

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Proyecto_FinalP2.Menu_Principal;
 using Proyecto_FinalP2.Menu_Principal.Sistema;
 using CapaPresentación.Menu_Principal.Sistema;
+using CapaNegocio;
+
 
 
 namespace CapaPresentación
@@ -21,11 +23,11 @@ namespace CapaPresentación
         private int xClick;
         private int yClick;
 
-        
 
-        public MenuPrincipal()
+        string usuario;
+        public MenuPrincipal(string usuario)
         {
-           
+            this.usuario = usuario;
             int xer = this.Location.X;
             int yer = this.Location.Y;
             this.Location = new Point(xer,yer);
@@ -51,6 +53,9 @@ namespace CapaPresentación
             this.panelPr.Tag = Ven;
             Ven.Show();
         }
+        
+       
+        
 
         private void TipoEntidades(Object Form)
         {
@@ -223,12 +228,16 @@ namespace CapaPresentación
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
             
         }
+        Login lg = new Login();
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            Datos.Text = lg.MostrarUsuario(usuario);
+        }
+        
+
+        
+
     }
 }

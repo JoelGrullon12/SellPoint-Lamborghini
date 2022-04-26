@@ -11,12 +11,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
 
+
 namespace CapaPresentación
 {
+    
     public partial class Login : Form
     {
         private int xClick;
         private int yClick;
+
+        public static string usuario = string.Empty;
+
 
         public Login()
         {
@@ -25,6 +30,7 @@ namespace CapaPresentación
             Thread.Sleep(5000);
             InitializeComponent();
             t.Abort();
+
         }
 
         public void StartForm()
@@ -75,6 +81,7 @@ namespace CapaPresentación
             }
         }
 
+       
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -84,7 +91,7 @@ namespace CapaPresentación
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        
         private void Login_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -123,17 +130,47 @@ namespace CapaPresentación
             btnMinimizar.BackColor = Color.Transparent;
         }
 
+        public string MostrarUsuario(string user)
+        {
+            N_Login objecto = new N_Login();
+            DataTable tb = objecto.MostrarUsuario(user);
+
+            string UserNameEntidad = tb.Rows[0][0].ToString();
+            string Direccion = tb.Rows[0][1].ToString();
+            string Localidad = tb.Rows[0][2].ToString();
+            string Telefonos = tb.Rows[0][3].ToString();
+            string RolUserEntidad = tb.Rows[0][4].ToString();
+
+
+            string fecha = DateTime.Now.ToString("HH:mm:ss");
+
+            string datos  = " Usuario: " + UserNameEntidad
+                 + " | Hora actual: " + fecha + " | Dirección: " + Direccion
+                 + " | Localidad: " + Localidad
+                 + " | Telefonos: " + Telefonos
+                 + " | RolUserEntidad: " + RolUserEntidad;
+            return datos;
+        }
+
+        public string Datos(string datos)
+        {
+            return datos;
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string user = txtuser.Text;
+            usuario = txtuser.Text;
             string pass = txtpass.Text;
-            MenuPrincipal main = new MenuPrincipal();
-            int acc = N_Login.Login(user, pass);
+            MenuPrincipal main = new MenuPrincipal(usuario);
+            int acc = N_Login.Login(usuario, pass);
+
 
             if (acc == 1)
             {
                 main.Show();
                 this.Hide();
+                MostrarUsuario(usuario);
+                
+
             }
             else if (acc == 0)
             {
@@ -147,12 +184,15 @@ namespace CapaPresentación
             }
         }
 
+       
         private void btnLogin_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
 
+        
 
+      
 
         private void Login_KeyDown(object sender, KeyEventArgs e)
         {

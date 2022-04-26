@@ -53,7 +53,7 @@ namespace CapaDatos
             }
             return dt;
         }
-        
+
 
         /// <summary>
         /// Metodo para insertar un registro en la tabla GruposEntidades
