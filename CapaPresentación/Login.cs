@@ -207,5 +207,10 @@ namespace CapaPresentación
                 }
             }
         }
+
+        private void txtpass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -332,7 +332,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 18);
             this.label10.TabIndex = 57;
-            this.label10.Text = "Direccion:";
+            this.label10.Text = "Dirección:";
             // 
             // txtUser
             // 
@@ -669,7 +669,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(112, 19);
             this.label16.TabIndex = 63;
-            this.label16.Text = "Limite Credito:";
+            this.label16.Text = "Limite Crédito:";
             // 
             // cmbIdTpEnt
             // 

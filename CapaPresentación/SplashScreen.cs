@@ -41,7 +41,7 @@ namespace Proyecto_FinalP2
 
         private void SplashScreen_Load(object sender, EventArgs e)
         {
-            bar.ForeColor = Color.Blue;
+            
         }
     }
 }

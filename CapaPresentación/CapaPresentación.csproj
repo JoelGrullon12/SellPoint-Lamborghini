@@ -147,6 +147,7 @@
     <Content Include="Img\error.png" />
     <Content Include="Img\GimpSellPoint.png" />
     <Content Include="Img\information.png" />
+    <Content Include="Img\trade.ico" />
     <None Include="Resources\GimpsellpointBlue.png" />
     <None Include="Resources\Joel.PNG" />
     <None Include="Resources\Felix.PNG" />

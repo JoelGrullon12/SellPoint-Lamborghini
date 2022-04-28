@@ -87,6 +87,7 @@
             this.txtpass.Size = new System.Drawing.Size(420, 19);
             this.txtpass.TabIndex = 2;
             this.txtpass.Text = "Contraseña:";
+            this.txtpass.TextChanged += new System.EventHandler(this.txtpass_TextChanged);
             this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
             this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
             // 
@@ -200,10 +201,11 @@
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.DimGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Login";
             this.TopMost = true;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnLogin_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Login_MouseMove);
